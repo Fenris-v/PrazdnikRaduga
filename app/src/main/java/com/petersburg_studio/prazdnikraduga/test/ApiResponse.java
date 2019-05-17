@@ -9,9 +9,9 @@ class Product {
     String img_url;
 }
 
-public class ApiResponse {
+class ApiResponse {
     List<Product> products;
-    public int total_pages;
-    public int total_records;
+//    public int total_pages;
+//    public int total_records;
     boolean has_more;
 }

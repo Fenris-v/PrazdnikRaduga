@@ -6,12 +6,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 class RetrofitClient {
 
-    private static final String BASE_URL = "http://cx45074.tmweb.ru/";
+    private static final String BASE_URL = "http://ct03381.tmweb.ru/api/";
     private static RetrofitClient instance;
     private Retrofit retrofit;
 
     private RetrofitClient() {
-        String baseUrl;
         retrofit = new Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

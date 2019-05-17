@@ -6,7 +6,7 @@ import retrofit2.http.Query;
 
 public interface Api {
 
-    @GET("db_connect_new.php")
+    @GET("db_connect.php")
     Call<ApiResponse> getProducts(
             @Query("page") int page
     );

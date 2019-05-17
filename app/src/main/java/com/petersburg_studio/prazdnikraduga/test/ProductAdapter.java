@@ -38,7 +38,7 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
         if (product != null) {
             Glide.with(ctx)
                     .load(product.img_url)
-//                    .placeholder(R.drawable.)
+                    .placeholder(R.drawable.cat_wait)
                     .into(holder.imageView);
 
             holder.textView.setText(product.name);
@@ -54,7 +54,7 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
 
                 @Override
                 public boolean areContentsTheSame(@NonNull Product oldProduct, @NonNull Product newProduct) {
-                    return oldProduct.equals(newProduct);
+                    return oldProduct.name.equals(newProduct.name);
                 }
             };
 
