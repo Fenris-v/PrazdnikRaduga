@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#78308d</color>
+    <color name="colorPrimaryDark">#672a7a</color>
+    <color name="colorAccent">#ff9000</color>
+    <color name="whiteColorText">#FFFFFF</color>
+    <color name="background">#FFFFFF</color>
+    <color name="phoneColor">#0d004c</color>
+    <color name="tint">#990D004C</color>
+    <color name="purpleDarkText">#672a7a</color>
+    <color name="blackBackground">#000000</color>
+    <color name="redText">#e5435a</color>
+    <color name="iconColor">#9988CC</color>
+
+</resources>

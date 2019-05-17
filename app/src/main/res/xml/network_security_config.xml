@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+
+    <!--TODO: delete tmweb-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">cx45074.tmweb.ru</domain>
+    </domain-config>
+
+    <!--TODO: domain prazdnik-raduga.ru-->
+
+</network-security-config>

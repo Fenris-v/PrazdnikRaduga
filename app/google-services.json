@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "106395004277",
+    "firebase_url": "https://prazdnikraduga-f01bb.firebaseio.com",
+    "project_id": "prazdnikraduga-f01bb",
+    "storage_bucket": "prazdnikraduga-f01bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106395004277:android:7927e302230cf2a1",
+        "android_client_info": {
+          "package_name": "com.petersburg_studio.prazdnikraduga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106395004277-gueqabq8scejc1epcqn0lhcfv6vav177.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ2ir4-F_sLNnDgNDD1OhNhUvh-32l9ko"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

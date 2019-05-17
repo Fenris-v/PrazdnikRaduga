@@ -1,0 +1,258 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/blackBackground"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_program"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/redText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_price"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/redText"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_animator" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_animator_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_animator_vip" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_animator_vip_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_10" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_10_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_25" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_25_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_100" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_master_100_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_lite" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_lite_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_standard" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_standard_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_vip" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_show_vip_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_bubbles" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_bubbles_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_cake" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_cake_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_pets" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_pets_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_photo" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_photo_p" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="start"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_video" />
+
+            <TextView
+                android:layout_margin="@dimen/table_margin"
+                android:background="@color/background"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/table_padding"
+                android:text="@string/p_video_p" />
+        </TableRow>
+    </TableLayout>
+</android.support.v4.widget.NestedScrollView>

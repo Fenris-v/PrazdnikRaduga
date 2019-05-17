@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_main_activity"
+            android:icon="@drawable/main_activity_icon"
+            android:title="@string/main_activity" />
+
+        <item
+            android:id="@+id/nav_animators"
+            android:icon="@drawable/animators_icon"
+            android:title="@string/animators"/>
+
+        <item
+            android:id="@+id/nav_shows"
+            android:icon="@drawable/shows_icon"
+            android:title="@string/shows"/>
+
+        <item
+            android:id="@+id/nav_masters"
+            android:icon="@drawable/master_icon"
+            android:title="@string/masters"/>
+
+        <item
+            android:id="@+id/nav_additional"
+            android:icon="@drawable/organization_icon"
+            android:title="@string/additional"/>
+
+        <item
+            android:id="@+id/nav_thematic_party"
+            android:icon="@drawable/thematic_party_icon"
+            android:title="@string/thematic_party"/>
+
+        <item
+            android:id="@+id/nav_seasons_holidays"
+            android:icon="@drawable/seasons_icon"
+            android:title="@string/seasons"/>
+
+        <item
+            android:id="@+id/nav_price"
+            android:icon="@drawable/price_icon"
+            android:title="@string/price"/>
+
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/contacts_icon"
+            android:title="@string/contacts"/>
+
+        <!--TODO: DELETE TEST-->
+        <item
+            android:id="@+id/nav_test"
+            android:icon="@drawable/test"
+            android:title="TEST"
+            tools:ignore="HardcodedText" />
+    </group>
+
+</menu>
