@@ -3,7 +3,7 @@
 
     <!--TODO: delete tmweb-->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">cx45074.tmweb.ru</domain>
+        <domain includeSubdomains="true">ct03381.tmweb.ru</domain>
     </domain-config>
 
     <!--TODO: domain prazdnik-raduga.ru-->
