@@ -1,30 +1,29 @@
-package com.petersburg_studio.prazdnikraduga.test;
+package com.petersburg_studio.prazdnikraduga.test.homescreen;
 
 import retrofit2.Retrofit;
-import retrofit2.Retrofit.Builder;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class RetrofitClient {
+public class RetrofitClient {
 
     private static final String BASE_URL = "http://ct03381.tmweb.ru/api/";
     private static RetrofitClient instance;
     private Retrofit retrofit;
 
     private RetrofitClient() {
-        retrofit = new Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    static synchronized RetrofitClient getInstance() {
+    public static synchronized RetrofitClient getInstance() {
         if (instance == null) {
             instance = new RetrofitClient();
         }
         return instance;
     }
 
-    Api getApi() {
-        return retrofit.create(Api.class);
+    public ApiService getApi() {
+        return retrofit.create(ApiService.class);
     }
 }

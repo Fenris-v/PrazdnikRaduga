@@ -15,8 +15,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".test.TestActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".test.homescreen.TestActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".stub.StubActivity"
             android:parentActivityName=".MainActivity" />
