@@ -313,9 +313,6 @@
     <string name="p_video_p">4000руб</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDipcIe5bMVoPN52Evp2rhoXvcD_YSEIoY</string>
     <string name="address">Наш адрес - Москва,\n2-я Рощинская, дом 3</string>
-
-    <string name="title_activity_navigation">NavigationActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="no_internet">Включите интернет и обновите страницу</string>
+    <string name="close">Закрыть</string>
 </resources>

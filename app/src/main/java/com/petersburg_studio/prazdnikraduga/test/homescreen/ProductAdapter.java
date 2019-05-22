@@ -10,12 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
 import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
 
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
+
+    final Product product;
 
     private static DiffUtil.ItemCallback<Product> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Product>() {
@@ -34,6 +37,7 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
     public ProductAdapter(Context ctx) {
         super(DIFF_CALLBACK);
         this.ctx = ctx;
+        product = null;
     }
 
     @NonNull
@@ -55,15 +59,26 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
                 .into(holder.imageView);
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ProductViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
         TextView textView;
 
-        public ProductViewHolder(@NonNull View view) {
+        ProductViewHolder(@NonNull View view) {
             super(view);
             imageView = view.findViewById(R.id.category_image);
             textView = view.findViewById(R.id.category_text);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+
+                        Toast.makeText(ctx, "You're click on " + getItem(pos).getName(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 }

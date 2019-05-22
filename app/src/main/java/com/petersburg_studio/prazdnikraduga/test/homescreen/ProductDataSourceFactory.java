@@ -17,7 +17,7 @@ public class ProductDataSourceFactory extends DataSource.Factory {
         return productDataSource;
     }
 
-    public MutableLiveData<PageKeyedDataSource<Integer, Product>> getProductLiveDataSource() {
+    MutableLiveData<PageKeyedDataSource<Integer, Product>> getProductLiveDataSource() {
         return productLiveDataSource;
     }
 }

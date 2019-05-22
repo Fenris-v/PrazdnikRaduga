@@ -10,8 +10,8 @@ import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
 
 public class ProductViewModel extends ViewModel {
 
-    public LiveData<PagedList<Product>> productPagedList;
-    public LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource;
+    LiveData<PagedList<Product>> productPagedList;
+    private LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource;
 
     public ProductViewModel() {
         ProductDataSourceFactory productDataSourceFactory = new ProductDataSourceFactory();

@@ -17,7 +17,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -32,7 +31,6 @@ import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.PricesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.SeasonsHolidaysFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ShowsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ThematicPartiesFragment;
-import com.petersburg_studio.prazdnikraduga.stub.StubActivity;
 import com.petersburg_studio.prazdnikraduga.test.homescreen.TestActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -102,37 +100,40 @@ public class MainActivity extends AppCompatActivity
         //animate for main fab on scroll
         NestedScrollView nestedScrollView = findViewById(R.id.nestedScrollView);
         if (nestedScrollView != null) {
-            nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (nestedScrollView1, x, y, oldX, oldY) -> {
+            nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView nestedScrollView,
+                                           int x, int y, int oldX, int oldY) {
+                    //hide fab's if scroll down
+                    if (y > oldY && fab_status) {
+                        fab.hide();
+                        hideFABs();
+                    } else if (y > oldY) {
+                        fab.hide();
+                    }
 
-                //hide fab's if scroll down
-                if (y > oldY && fab_status) {
-                    fab.hide();
-                    hideFABs();
-                } else if (y > oldY) {
-                    fab.hide();
-                }
+                    //show main fab if scroll up
+                    if (y < oldY && fab_status) {
+                        fab.show();
+                        hideFABs();
+                    } else if (y < oldY) {
+                        fab.show();
+                    }
 
-                //show main fab if scroll up
-                if (y < oldY && fab_status) {
-                    fab.show();
-                    hideFABs();
-                } else if (y < oldY) {
-                    fab.show();
-                }
+                    //show main fab if page home
+                    if (y == 0) {
+                        fab.show();
+                    }
 
-                //show main fab if page home
-                if (y == 0) {
-                    fab.show();
-                }
-
-                //hide fab's if page end
-                if (y == nestedScrollView1.getChildAt(0)
-                        .getMeasuredHeight() - nestedScrollView1.getMeasuredHeight() && fab_status) {
-                    fab.hide();
-                    hideFABs();
-                } else if (y == nestedScrollView1.getChildAt(0)
-                        .getMeasuredHeight() - nestedScrollView1.getMeasuredHeight()) {
-                    fab.hide();
+                    //hide fab's if page end
+                    if (y == nestedScrollView.getChildAt(0)
+                            .getMeasuredHeight() - nestedScrollView.getMeasuredHeight() && fab_status) {
+                        fab.hide();
+                        hideFABs();
+                    } else if (y == nestedScrollView.getChildAt(0)
+                            .getMeasuredHeight() - nestedScrollView.getMeasuredHeight()) {
+                        fab.hide();
+                    }
                 }
             });
         }
@@ -372,13 +373,7 @@ public class MainActivity extends AppCompatActivity
 
     protected void onStop() {
         super.onStop();
-        System.out.println("main stop");
         iFragment = null;
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        System.out.println("main destroy");
     }
 
     public static Fragment getFragment() {

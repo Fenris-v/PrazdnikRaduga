@@ -3,7 +3,7 @@ package com.petersburg_studio.prazdnikraduga.test.homescreen;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+class RetrofitClient {
 
     private static final String BASE_URL = "http://ct03381.tmweb.ru/api/";
     private static RetrofitClient instance;
@@ -16,14 +16,14 @@ public class RetrofitClient {
                 .build();
     }
 
-    public static synchronized RetrofitClient getInstance() {
+    static synchronized RetrofitClient getInstance() {
         if (instance == null) {
             instance = new RetrofitClient();
         }
         return instance;
     }
 
-    public ApiService getApi() {
+    ApiService getApi() {
         return retrofit.create(ApiService.class);
     }
 }
