@@ -11,6 +11,7 @@
     <color name="blackBackground">#000000</color>
     <color name="redText">#e5435a</color>
     <color name="iconColor">#9988CC</color>
+    <color name="transparent_white">#00FFFFFF</color>
 
     //refreshes colors
     <color name="refresh">#FF5900</color>

@@ -3,9 +3,9 @@ package com.petersburg_studio.prazdnikraduga.test.homescreen;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,8 +25,9 @@ public class TestActivity extends AppCompatActivity {
     private boolean isRefresh = false;
     private Snackbar snackbar;
     FloatingActionButton fab_up;
-    NestedScrollView nestedScrollView;
     final ProductAdapter adapter = new ProductAdapter(this);
+    RecyclerView recyclerView;
+    GridLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,25 +37,15 @@ public class TestActivity extends AppCompatActivity {
         showLoadingIndicator(true);
         loadItems();
 
-        refresh = findViewById(R.id.refresh);
-        refresh.setColorSchemeResources(R.color.refresh2, R.color.refresh, R.color.refresh1);
-        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                isRefresh = true;
-                loadItems();
-            }
-        });
-
-        fab_up.hide();
-        if (nestedScrollView != null) {
-            nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        if (recyclerView != null) {
+            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
-                public void onScrollChange(NestedScrollView nestedScrollView, int x, int y, int oldX, int oldY) {
-                    if (y < oldY && y != 0) {
-                        fab_up.show();
-                    } else {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    if (dy >= 0 || layoutManager.findFirstVisibleItemPosition() == 0) {
                         fab_up.hide();
+                    } else {
+                        fab_up.show();
                     }
                 }
             });
@@ -71,7 +62,7 @@ public class TestActivity extends AppCompatActivity {
                 public void run() {
                     progressBar.setVisibility(View.GONE);
                 }
-            }, 1000);
+            }, 0);
         }
     }
 
@@ -84,7 +75,18 @@ public class TestActivity extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         fab_up = findViewById(R.id.fab_up);
-        nestedScrollView = findViewById(R.id.scroll);
+
+        refresh = findViewById(R.id.refresh);
+        refresh.setColorSchemeResources(R.color.refresh2, R.color.refresh, R.color.refresh1);
+        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                isRefresh = true;
+                loadItems();
+            }
+        });
+
+        fab_up.hide();
     }
 
     private void loadItems() {
@@ -92,8 +94,8 @@ public class TestActivity extends AppCompatActivity {
         final View parentView = findViewById(R.id.parentLayout);
 
         if (CheckInternetConnection.checkConnection(getApplicationContext())) {
-            final RecyclerView recyclerView = findViewById(R.id.recyclerView);
-            GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+            recyclerView = findViewById(R.id.recyclerView);
+            layoutManager = new GridLayoutManager(this, 2);
             recyclerView.setLayoutManager(layoutManager);
             ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
 
@@ -113,13 +115,11 @@ public class TestActivity extends AppCompatActivity {
                         public void run() {
                             refresh.setRefreshing(false);
                         }
-                    }, 1000);
+                    }, 0);
                 }
             });
-
             recyclerView.setAdapter(adapter);
-            System.out.println("fuck");
-            System.out.println(recyclerView);
+
         } else {
             showLoadingIndicator(false);
             snackbar = Snackbar
@@ -133,6 +133,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     public void onClickUpFab(View view) {
-        nestedScrollView.smoothScrollTo(0, 0);
+        recyclerView.smoothScrollToPosition(0);
     }
 }

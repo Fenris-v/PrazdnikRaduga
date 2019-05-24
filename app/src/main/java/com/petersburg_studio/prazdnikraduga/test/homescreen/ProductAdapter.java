@@ -2,6 +2,7 @@ package com.petersburg_studio.prazdnikraduga.test.homescreen;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
+import com.petersburg_studio.prazdnikraduga.test.ItemDetailActivity;
 import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
 
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
@@ -74,8 +75,10 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
-
-                        Toast.makeText(ctx, "You're click on " + getItem(pos).getName(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(ctx, ItemDetailActivity.class);
+                        intent.putExtra(ItemDetailActivity.EXTRA_TEXT, getItem(pos).getName());
+                        intent.putExtra(ItemDetailActivity.EXTRA_IMG, getItem(pos).getImg_url());
+                        ctx.startActivity(intent);
                     }
                 }
             });

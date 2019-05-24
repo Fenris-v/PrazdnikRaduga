@@ -4,7 +4,7 @@
     package="com.petersburg_studio.prazdnikraduga">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="false"
@@ -17,8 +17,11 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
         <activity
+            android:name=".test.ItemDetailActivity"
+            android:parentActivityName=".test.homescreen.TestActivity" />
+        <activity
             android:name=".test.homescreen.TestActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".stub.StubActivity"
             android:parentActivityName=".MainActivity" />
