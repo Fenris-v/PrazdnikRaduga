@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.test.ItemDetailActivity;
+import com.petersburg_studio.prazdnikraduga.slider.SliderActivity;
 import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
+
+import java.util.Objects;
 
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
@@ -55,7 +57,7 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
         holder.textView.setText(product.getName());
 
         Glide.with(ctx)
-                .load(product.getImg_url())
+                .load(product.getImg_url0())
                 .placeholder(R.drawable.cat_wait)
                 .into(holder.imageView);
     }
@@ -64,20 +66,26 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
 
         ImageView imageView;
         TextView textView;
+        View parent;
 
         ProductViewHolder(@NonNull View view) {
             super(view);
             imageView = view.findViewById(R.id.category_image);
             textView = view.findViewById(R.id.category_text);
+            parent = view.findViewById(R.id.parent);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
-                        Intent intent = new Intent(ctx, ItemDetailActivity.class);
-                        intent.putExtra(ItemDetailActivity.EXTRA_TEXT, getItem(pos).getName());
-                        intent.putExtra(ItemDetailActivity.EXTRA_IMG, getItem(pos).getImg_url());
+                        Intent intent = new Intent(ctx, SliderActivity.class);
+                        intent.putExtra(SliderActivity.EXTRA_TEXT, Objects.requireNonNull(getItem(pos)).getName());
+                        intent.putExtra(SliderActivity.EXTRA_IMG, Objects.requireNonNull(getItem(pos)).getImg_url0());
+                        intent.putExtra(SliderActivity.EXTRA_IMG1, Objects.requireNonNull(getItem(pos)).getImg_url1());
+                        intent.putExtra(SliderActivity.EXTRA_IMG2, Objects.requireNonNull(getItem(pos)).getImg_url2());
+                        intent.putExtra(SliderActivity.EXTRA_IMG3, Objects.requireNonNull(getItem(pos)).getImg_url3());
+//                        intent.putExtra(SliderActivity.EXTRA_POS, pos);
                         ctx.startActivity(intent);
                     }
                 }

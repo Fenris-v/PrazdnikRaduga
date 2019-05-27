@@ -18,6 +18,7 @@
         <attr name="indicatorMarginLeft" format="dimension|reference"/>
         <attr name="indicatorMarginRight" format="dimension|reference"/>
         <attr name="indicatorMarginBottom" format="dimension|reference"/>
+        <attr name="indicatorMarginTop" format="dimension|reference"/>
         <attr name="indicatorGravity" format="enum">
             <enum name="left" value="0"/>
             <enum name="center" value="1"/>
@@ -27,6 +28,7 @@
 
     <declare-styleable name="BannerLayout">
         <attr name="interval" />
+        <attr name="indicatorGravity" />
         <attr name="showIndicator" />
         <attr name="orientation" />
         <attr name="autoPlaying"/>

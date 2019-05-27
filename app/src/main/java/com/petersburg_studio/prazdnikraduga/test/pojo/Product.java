@@ -17,9 +17,21 @@ public class Product {
     @Expose
     private String name;
 
-    @SerializedName("img_url")
+    @SerializedName("img_url0")
     @Expose
-    private String img_url;
+    private String img_url0;
+
+    @SerializedName("img_url1")
+    @Expose
+    private String img_url1;
+
+    @SerializedName("img_url2")
+    @Expose
+    private String img_url2;
+
+    @SerializedName("img_url3")
+    @Expose
+    private String img_url3;
 
     public Integer getType_id() {
         return type_id;
@@ -45,11 +57,35 @@ public class Product {
         this.name = name;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getImg_url0() {
+        return img_url0;
     }
 
-    public void setImg_url(String img_url) {
-        this.img_url = img_url;
+    public void setImg_url0(String img_url0) {
+        this.img_url0 = img_url0;
+    }
+
+    public String getImg_url1() {
+        return img_url1;
+    }
+
+    public void setImg_url1(String img_url1) {
+        this.img_url1 = img_url1;
+    }
+
+    public String getImg_url2() {
+        return img_url2;
+    }
+
+    public void setImg_url2(String img_url2) {
+        this.img_url2 = img_url2;
+    }
+
+    public String getImg_url3() {
+        return img_url3;
+    }
+
+    public void setImg_url3(String img_url3) {
+        this.img_url3 = img_url3;
     }
 }

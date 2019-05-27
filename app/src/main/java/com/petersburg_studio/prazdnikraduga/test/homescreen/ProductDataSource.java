@@ -26,16 +26,22 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
                 .enqueue(new Callback<ApiResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+//                        if (response.body() == null) {
+//                            onFailure(call, new HttpException(response));
+//                            return;
+//                        }
+
                         if (response.body() != null) {
-                            callback.onResult(response.body().getProducts(), null, FIRST_PAGE + 1);
-//                        } else {
-//                            TestActivity.class.
+                            callback.onResult(
+                                    response.body().getProducts(),
+                                    null,
+                                    FIRST_PAGE + 1);
                         }
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<ApiResponse> call, @NonNull Throwable t) {
-
+//                        Retryable retryable = new
                     }
                 });
     }

@@ -80,11 +80,11 @@
         и находчивость. Ребят будут ждать захватывающие птичьи эстафеты и прикольные конкурсы!
         \n Озорные Энгри Бердз увлекут детей в свой энергичный мир, где нет места скуке и
         спокойствию! Уж если кто и знает, как веселиться, так это именно наши бойкие птички!</string>
-    <string name="tmnt_url">https://prazdnik-raduga.ru/animators/animatory-cherepashki-nindzya/</string>
-    <string name="captain_url">https://prazdnik-raduga.ru/animators/animator-kapitan-kryuk/</string>
-    <string name="batman_url">https://prazdnik-raduga.ru/animators/animator-batman/</string>
-    <string name="pirates_url">https://prazdnik-raduga.ru/animators/animatory-piraty/</string>
-    <string name="angry_birds_url">https://prazdnik-raduga.ru/animators/animatory-zlye-ptichki/</string>
+    <string name="tmnt_url" translatable="false">https://prazdnik-raduga.ru/animators/animatory-cherepashki-nindzya/</string>
+    <string name="captain_url" translatable="false">https://prazdnik-raduga.ru/animators/animator-kapitan-kryuk/</string>
+    <string name="batman_url" translatable="false">https://prazdnik-raduga.ru/animators/animator-batman/</string>
+    <string name="pirates_url" translatable="false">https://prazdnik-raduga.ru/animators/animatory-piraty/</string>
+    <string name="angry_birds_url" translatable="false">https://prazdnik-raduga.ru/animators/animatory-zlye-ptichki/</string>
     <string name="s_bubbles_title">Шоу мыльных пузырей</string>
     <string name="s_chemistry_title">Химическое шоу</string>
     <string name="s_paper_title">Бумажное шоу</string>
@@ -121,11 +121,11 @@
         ярким светом!\n Наши профессиональные артисты удивят всех своим мастерством. На празднике
         словно по волшебству вспыхнут замысловатые огненные узоры. От буйства укрощённого огня будет
         просто невозможно оторвать взгляд!</string>
-    <string name="s_bubbles_url">https://prazdnik-raduga.ru/shou-programmy/mylnye-puzyri/</string>
-    <string name="s_chemistry_url">https://prazdnik-raduga.ru/shou-programmy/himicheskoe-shou/</string>
-    <string name="s_paper_url">https://prazdnik-raduga.ru/shou-programmy/bumazhnoe-shou/</string>
-    <string name="s_tesla_url">https://prazdnik-raduga.ru/shou-programmy/tesla-shou/</string>
-    <string name="s_fire_url">https://prazdnik-raduga.ru/shou-programmy/faer-shou/</string>
+    <string name="s_bubbles_url" translatable="false">https://prazdnik-raduga.ru/shou-programmy/mylnye-puzyri/</string>
+    <string name="s_chemistry_url" translatable="false">https://prazdnik-raduga.ru/shou-programmy/himicheskoe-shou/</string>
+    <string name="s_paper_url" translatable="false">https://prazdnik-raduga.ru/shou-programmy/bumazhnoe-shou/</string>
+    <string name="s_tesla_url" translatable="false">https://prazdnik-raduga.ru/shou-programmy/tesla-shou/</string>
+    <string name="s_fire_url" translatable="false">https://prazdnik-raduga.ru/shou-programmy/faer-shou/</string>
 
     <string name="m_coffee_title">Кофейные куклы</string>
     <string name="m_eggs_title">Декупаж яиц</string>
@@ -160,11 +160,11 @@
         научим детей делать настоящие морские сувениры!\n И не важно, какой сезон и какая погода на
         дворе. Мы понимаем, что море далеко, а южного настроения хочется всегда! Поэтому научим
         каждого ребёнка создавать яркое настроение своими руками.</string>
-    <string name="m_coffee_url">https://prazdnik-raduga.ru/master-klassy/kofejnye-kukly/</string>
-    <string name="m_eggs_url">https://prazdnik-raduga.ru/master-klassy/dekupazh-yaic/</string>
-    <string name="m_masks_url">https://prazdnik-raduga.ru/master-klassy/venecianskie-maski/</string>
-    <string name="m_origami_url">https://prazdnik-raduga.ru/master-klassy/origami/</string>
-    <string name="m_rainbow_url">https://prazdnik-raduga.ru/master-klassy/raduga-v-butylke/</string>
+    <string name="m_coffee_url" translatable="false">https://prazdnik-raduga.ru/master-klassy/kofejnye-kukly/</string>
+    <string name="m_eggs_url" translatable="false">https://prazdnik-raduga.ru/master-klassy/dekupazh-yaic/</string>
+    <string name="m_masks_url" translatable="false">https://prazdnik-raduga.ru/master-klassy/venecianskie-maski/</string>
+    <string name="m_origami_url" translatable="false">https://prazdnik-raduga.ru/master-klassy/origami/</string>
+    <string name="m_rainbow_url" translatable="false">https://prazdnik-raduga.ru/master-klassy/raduga-v-butylke/</string>
     <string name="add_bubbles_title">Оформление шарами</string>
     <string name="add_dj_title">Диджей</string>
     <string name="add_dolls_theater_title">Кукольный театр</string>
@@ -198,11 +198,11 @@
         аккомпанемент бодрых мелодий. Хороводы, дружные песни и весёлые пляски невозможны без
         качественного музыкального сопровождения. Мы прекрасно знаем об этом и делимся своим
         собственным плей-листом для детских праздников!</string>
-    <string name="add_bubbles_url">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/oformlenie-sharami/</string>
-    <string name="add_dj_url">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/didzhej/</string>
-    <string name="add_dolls_theater_url">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/kukolnyj-teatr/</string>
-    <string name="add_light_url">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/svetovoe-oformlenie-prazdnika/</string>
-    <string name="add_music_url">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/muzykal-noe-oformlenie-prazdnika/</string>
+    <string name="add_bubbles_url" translatable="false">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/oformlenie-sharami/</string>
+    <string name="add_dj_url" translatable="false">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/didzhej/</string>
+    <string name="add_dolls_theater_url" translatable="false">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/kukolnyj-teatr/</string>
+    <string name="add_light_url" translatable="false">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/svetovoe-oformlenie-prazdnika/</string>
+    <string name="add_music_url" translatable="false">https://prazdnik-raduga.ru/dopolnitelnye-uslugi/muzykal-noe-oformlenie-prazdnika/</string>
     <string name="t_chocolate_title">Шоколадная вечеринка</string>
     <string name="t_mexico_title">Мексиканская вечеринка</string>
     <string name="t_pirates_title">Пиратская вечеринка</string>
@@ -237,11 +237,11 @@
         устроим не только весёлое, а ещё познавательное и по-настоящему увлекательное мероприятие.
         Кто знает, может быть наша вечеринка станет началом великолепной актёрской карьеры
         ребёнка?</string>
-    <string name="t_chocolate_url">https://prazdnik-raduga.ru/tematicheskie-vecherinki/shokoladnaya-vecherinka/</string>
-    <string name="t_mexico_url">https://prazdnik-raduga.ru/tematicheskie-vecherinki/meksikanskaya-vecherinka/</string>
-    <string name="t_pirates_url">https://prazdnik-raduga.ru/tematicheskie-vecherinki/piratskaya-vecherinka/</string>
-    <string name="t_science_url">https://prazdnik-raduga.ru/tematicheskie-vecherinki/nauchnaya-vecherinka/</string>
-    <string name="t_theater_url">https://prazdnik-raduga.ru/tematicheskie-vecherinki/teatralnaya-vecherinka/</string>
+    <string name="t_chocolate_url" translatable="false">https://prazdnik-raduga.ru/tematicheskie-vecherinki/shokoladnaya-vecherinka/</string>
+    <string name="t_mexico_url" translatable="false">https://prazdnik-raduga.ru/tematicheskie-vecherinki/meksikanskaya-vecherinka/</string>
+    <string name="t_pirates_url" translatable="false">https://prazdnik-raduga.ru/tematicheskie-vecherinki/piratskaya-vecherinka/</string>
+    <string name="t_science_url" translatable="false">https://prazdnik-raduga.ru/tematicheskie-vecherinki/nauchnaya-vecherinka/</string>
+    <string name="t_theater_url" translatable="false">https://prazdnik-raduga.ru/tematicheskie-vecherinki/teatralnaya-vecherinka/</string>
     <string name="season_8_title">8 марта</string>
     <string name="season_9_title">9 мая</string>
     <string name="season_23_title">23 февраля</string>
@@ -278,11 +278,11 @@
         хоровод вокруг ёлки и споют вместе со всеми самые весёлые зимние песни. Опытные актёры
         смогут рассмешить каждого. Они, как настоящие волшебники, наколдуют головокружительную бурю
         радости!</string>
-    <string name="season_8_url">https://prazdnik-raduga.ru/sezonnye-prazdniki/8-marta/</string>
-    <string name="season_9_url">https://prazdnik-raduga.ru/sezonnye-prazdniki/9-maya/</string>
-    <string name="season_23_url">https://prazdnik-raduga.ru/sezonnye-prazdniki/23-fevralya/</string>
-    <string name="season_halloween_url">https://prazdnik-raduga.ru/sezonnye-prazdniki/hellouin/</string>
-    <string name="season_new_url">https://prazdnik-raduga.ru/sezonnye-prazdniki/novyj-god/</string>
+    <string name="season_8_url" translatable="false">https://prazdnik-raduga.ru/sezonnye-prazdniki/8-marta/</string>
+    <string name="season_9_url" translatable="false">https://prazdnik-raduga.ru/sezonnye-prazdniki/9-maya/</string>
+    <string name="season_23_url" translatable="false">https://prazdnik-raduga.ru/sezonnye-prazdniki/23-fevralya/</string>
+    <string name="season_halloween_url" translatable="false">https://prazdnik-raduga.ru/sezonnye-prazdniki/hellouin/</string>
+    <string name="season_new_url" translatable="false">https://prazdnik-raduga.ru/sezonnye-prazdniki/novyj-god/</string>
     <string name="p_program">Программа</string>
     <string name="p_price">Цена</string>
     <string name="p_animator">Аниматор</string>
@@ -315,4 +315,5 @@
     <string name="address">Наш адрес - Москва,\n2-я Рощинская, дом 3</string>
     <string name="no_internet">Включите интернет и обновите страницу</string>
     <string name="close">Закрыть</string>
+    <string name="popular_category">Популярные разделы</string>
 </resources>
