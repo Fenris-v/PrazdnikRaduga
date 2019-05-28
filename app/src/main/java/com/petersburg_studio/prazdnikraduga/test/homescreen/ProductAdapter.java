@@ -19,6 +19,8 @@ import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
 
 import java.util.Objects;
 
+//TODO: teleport this to testActivity and change her
+
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
     final Product product;

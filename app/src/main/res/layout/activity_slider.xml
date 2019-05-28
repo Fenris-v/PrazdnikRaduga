@@ -28,7 +28,7 @@
         app:indicatorGravity="center"
         app:autoPlaying="true"
         app:itemSpace="20"
-        app:moveSpeed="1.8"/>
+        app:moveSpeed="0.8"/>
 
     <TextView
         android:textColor="@color/blackBackground"

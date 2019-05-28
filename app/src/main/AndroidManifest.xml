@@ -63,7 +63,6 @@
             android:screenOrientation="portrait" /> <!-- ANIMATORS ACTIVITY -->
         <activity
             android:name=".AnimatorsActivity"
-            android:label="@string/animators"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" /> <!-- MAIN ACTIVITY -->
         <activity
