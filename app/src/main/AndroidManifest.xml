@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name=".refreshlib.TestActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".sliderActivityTest.SliderActivity"
             android:screenOrientation="portrait"
             android:parentActivityName=".itemsActivityTest.TestActivity"/>
