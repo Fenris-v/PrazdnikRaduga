@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.petersburg_studio.prazdnikraduga.refreshlib;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.refreshlib;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

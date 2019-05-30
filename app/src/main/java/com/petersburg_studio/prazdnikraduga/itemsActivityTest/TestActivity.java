@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,7 +18,7 @@ import android.widget.ProgressBar;
 import com.petersburg_studio.prazdnikraduga.R;
 import com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter.ProductAdapter;
 import com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter.ProductViewModel;
-import com.petersburg_studio.prazdnikraduga.refreshlib.WaveSwipeRefreshLayout;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.refreshlib.WaveSwipeRefreshLayout;
 import com.petersburg_studio.prazdnikraduga.tools.CheckInternetConnection;
 
 public class TestActivity extends AppCompatActivity implements WaveSwipeRefreshLayout.OnRefreshListener {
@@ -66,7 +65,7 @@ public class TestActivity extends AppCompatActivity implements WaveSwipeRefreshL
                 public void run() {
                     progressBar.setVisibility(View.GONE);
                 }
-            }, 0);
+            }, 500);
         }
     }
 
@@ -85,16 +84,6 @@ public class TestActivity extends AppCompatActivity implements WaveSwipeRefreshL
         waveSwipeRefreshLayout.setWaveColor(Color.argb(100, 120, 48, 141));
         waveSwipeRefreshLayout.setMaxDropHeight(500);
         waveSwipeRefreshLayout.setOnRefreshListener(this);
-
-//        refresh = findViewById(R.id.refresh);
-//        refresh.setColorSchemeResources(R.color.refresh2, R.color.refresh, R.color.refresh1);
-//        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                isRefresh = true;
-//                loadItems();
-//            }
-//        });
 
         fab_up.hide();
     }
@@ -149,8 +138,17 @@ public class TestActivity extends AppCompatActivity implements WaveSwipeRefreshL
 
     @Override
     public void onRefresh() {
-        isRefresh = true;
-        loadItems();
+        final View parentView = findViewById(R.id.parentLayout);
         if (snackbar != null) snackbar.dismiss();
+        if (CheckInternetConnection.checkConnection(getApplicationContext())) {
+            isRefresh = true;
+            loadItems();
+        } else {
+            snackbar = Snackbar
+                    .make(parentView, R.string.no_internet, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.close, v -> snackbar.dismiss());
+            snackbar.show();
+            waveSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 }

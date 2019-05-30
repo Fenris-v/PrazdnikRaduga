@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.petersburg_studio.prazdnikraduga.refreshlib;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.refreshlib;
 
 import android.content.Context;
 import android.util.AttributeSet;
