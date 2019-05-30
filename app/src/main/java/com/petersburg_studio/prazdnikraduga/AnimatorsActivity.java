@@ -18,6 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.petersburg_studio.prazdnikraduga.fragment.animators.AllAnimatorsFragment;
+import com.petersburg_studio.prazdnikraduga.fragment.animators.CartoonAnimatorsFragment;
+import com.petersburg_studio.prazdnikraduga.fragment.animators.FairyAnimatorsFragment;
+import com.petersburg_studio.prazdnikraduga.fragment.animators.GameAnimatorsFragment;
+import com.petersburg_studio.prazdnikraduga.fragment.animators.RealisticAnimatorsFragment;
+import com.petersburg_studio.prazdnikraduga.fragment.animators.SuperheroAnimatorsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.AdditionalServicesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ContactsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.MastersFragment;
@@ -25,13 +31,6 @@ import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.PricesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.SeasonsHolidaysFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ShowsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ThematicPartiesFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.AllAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.CartoonAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.FairyAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.GameAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.RealisticAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.fragment.animators.SuperheroAnimatorsFragment;
-import com.petersburg_studio.prazdnikraduga.stub.StubActivity;
 
 public class AnimatorsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,9 +117,6 @@ public class AnimatorsActivity extends AppCompatActivity
                 intent = new Intent(this, Other2ndActivity.class);
                 iFragment = new SeasonsHolidaysFragment();
                 break;
-            //TODO: delete test
-            case R.id.nav_test:
-                intent = new Intent(this, StubActivity.class);
         }
 
         if (intent != null) {

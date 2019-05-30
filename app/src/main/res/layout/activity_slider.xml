@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".slider.SliderActivity">
+    tools:context=".sliderActivityTest.SliderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.petersburg_studio.prazdnikraduga.slider.lib.BannerLayout
+    <com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.BannerLayout
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="370dp"
