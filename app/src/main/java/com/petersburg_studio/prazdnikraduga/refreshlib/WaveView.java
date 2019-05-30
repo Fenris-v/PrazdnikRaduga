@@ -349,7 +349,7 @@ public class WaveView extends View implements ViewTreeObserver.OnPreDrawListener
     mPaint.setStyle(Paint.Style.FILL);
 
     mShadowPaint = new Paint();
-    mShadowPaint.setShadowLayer(10.0f, 0.0f, 2.0f, SHADOW_COLOR);
+    mShadowPaint.setShadowLayer(5.0f, 0.0f, 2.0f, SHADOW_COLOR);
   }
 
   private void setUpPath() {

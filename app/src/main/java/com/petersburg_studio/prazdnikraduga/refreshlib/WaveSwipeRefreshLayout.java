@@ -673,7 +673,7 @@ public class WaveSwipeRefreshLayout extends ViewGroup
    * @see WaveView#setWaveColor(int)
    */
   public void setWaveColor(int argbColor) {
-    int alpha = 0xFFF & (argbColor >> 0);
+    int alpha = (argbColor >> 0);
     int red = 0xFF & ( argbColor >> 16);
     int blue = 0xFF & (argbColor >> 0 );
     int green = 0xFF & (argbColor >> 8 );

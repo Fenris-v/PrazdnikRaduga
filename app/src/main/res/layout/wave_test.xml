@@ -7,49 +7,50 @@
     android:orientation="vertical"
     tools:context=".refreshlib.TestActivity">
 
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="25dip"-->
-    <!--android:background="@color/colorPrimaryDark"-->
-    <!--/>-->
-
     <android.support.design.widget.AppBarLayout
+        app:elevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="enterAlways" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="enterAlways" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+
+    <com.petersburg_studio.prazdnikraduga.refreshlib.WaveSwipeRefreshLayout
+        android:id="@+id/main_swipe"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
-        <View
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:layout_below="@+id/toolbar"
-            android:background="@drawable/toolbar_dropshadow" />
+            android:layout_height="match_parent">
 
-
-        <com.petersburg_studio.prazdnikraduga.refreshlib.WaveSwipeRefreshLayout
-            android:id="@+id/main_swipe"
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar">
+            android:layout_height="match_parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <View android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/toolbar_dropshadow"/>
 
-        </com.petersburg_studio.prazdnikraduga.refreshlib.WaveSwipeRefreshLayout>
-
-    </RelativeLayout>
-
+        </FrameLayout>
+    </com.petersburg_studio.prazdnikraduga.refreshlib.WaveSwipeRefreshLayout>
 </LinearLayout>
