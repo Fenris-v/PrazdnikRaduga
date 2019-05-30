@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.slider.adapter;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.slider.lib.BannerLayout;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.BannerLayout;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.test.homescreen;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
@@ -6,16 +6,17 @@ import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PageKeyedDataSource;
 import android.arch.paging.PagedList;
 
-import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.data.ProductDataSource;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.data.ProductDataSourceFactory;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo.Product;
 
 public class ProductViewModel extends ViewModel {
 
-    LiveData<PagedList<Product>> productPagedList;
-    private LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource;
+    public LiveData<PagedList<Product>> productPagedList;
 
     public ProductViewModel() {
         ProductDataSourceFactory productDataSourceFactory = new ProductDataSourceFactory();
-        liveDataSource = productDataSourceFactory.getProductLiveDataSource();
+        LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource = productDataSourceFactory.getProductLiveDataSource();
 
         PagedList.Config pagedListConfig = (new PagedList.Config.Builder())
                 .setEnablePlaceholders(false)

@@ -1,10 +1,11 @@
-package com.petersburg_studio.prazdnikraduga.slider.lib.layoutmanager;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager;
 
 import android.content.Context;
 import android.graphics.PointF;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.OrientationHelper;
@@ -12,21 +13,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Objects;
+
 public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     private float minScale = 0.75f;
     private float angle = 8f;
     private int itemSpace = 385;
     private boolean mInfinite = true;
-    public static final int DETERMINE_BY_MAX_AND_MIN = -1;
+    private static final int DETERMINE_BY_MAX_AND_MIN = -1;
 
-    public static final int HORIZONTAL = OrientationHelper.HORIZONTAL;
+    private static final int HORIZONTAL = OrientationHelper.HORIZONTAL;
 
-    public static final int VERTICAL = OrientationHelper.VERTICAL;
+    static final int VERTICAL = OrientationHelper.VERTICAL;
 
-    protected int mDecoratedMeasurement;
+    private int mDecoratedMeasurement;
 
-    protected int mDecoratedMeasurementInOther;
+    private int mDecoratedMeasurementInOther;
 
     public float getMinScale() {
         return minScale;
@@ -52,15 +55,15 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         this.itemSpace = itemSpace;
     }
 
-    int mOrientation;
+    private int mOrientation;
 
-    protected int mSpaceMain;
+    private int mSpaceMain;
 
-    protected int mSpaceInOther;
+    private int mSpaceInOther;
 
-    protected float mOffset;
+    private float mOffset;
 
-    protected OrientationHelper mOrientationHelper;
+    private OrientationHelper mOrientationHelper;
 
     private boolean mReverseLayout = false;
 
@@ -70,7 +73,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
 
     private SavedState mPendingSavedState = null;
 
-    protected float mInterval;
+    private float mInterval;
 
     /* package */ OnPageChangeListener onPageChangeListener;
 
@@ -87,11 +90,11 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
 
     private int mMaxVisibleItemCount = DETERMINE_BY_MAX_AND_MIN;
 
-    protected float setInterval() {
+    private float setInterval() {
         return mDecoratedMeasurement - itemSpace;
     }
 
-    protected void setItemViewProperty(View itemView, float targetOffset) {
+    private void setItemViewProperty(View itemView, float targetOffset) {
         float scale = calculateScale(targetOffset + mSpaceMain);
         itemView.setScaleX(scale);
         itemView.setScaleY(scale);
@@ -115,7 +118,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         return (minScale - 1) * deltaX / (mOrientationHelper.getTotalSpace() / 2f) + 1f;
     }
 
-    protected float setViewElevation(View itemView, float targetOffset) {
+    private float setViewElevation(View itemView, float targetOffset) {
         return itemView.getScaleX() * 5;
     }
 
@@ -123,7 +126,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         this(HORIZONTAL, false);
     }
 
-    public OverFlyingLayoutManager(int orientation, boolean reverseLayout) {
+    private OverFlyingLayoutManager(int orientation, boolean reverseLayout) {
         setOrientation(orientation);
         setReverseLayout(reverseLayout);
         setAutoMeasureEnabled(true);
@@ -223,7 +226,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         return mIntegerDy;
     }
 
-    public void setIntegerDy(boolean mIntegerDy) {
+    private void setIntegerDy(boolean mIntegerDy) {
         this.mIntegerDy = mIntegerDy;
     }
 
@@ -237,7 +240,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         return mReverseLayout;
     }
 
-    public void setReverseLayout(boolean reverseLayout) {
+    private void setReverseLayout(boolean reverseLayout) {
         assertNotInLayoutOrScroll(null);
         if (reverseLayout == mReverseLayout) {
             return;
@@ -257,7 +260,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         if (getChildCount() == 0) {
             return null;
         }
-        final int firstChildPos = getPosition(getChildAt(0));
+        final int firstChildPos = getPosition(Objects.requireNonNull(getChildAt(0)));
         final float direction = targetPosition < firstChildPos == !mReverseLayout ?
                 -1 / getDistanceRatio() : 1 / getDistanceRatio();
         if (mOrientation == HORIZONTAL) {
@@ -304,7 +307,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         layoutItems(recycler);
     }
 
-    public int getTotalSpaceInOther() {
+    private int getTotalSpaceInOther() {
         if (mOrientation == HORIZONTAL) {
             return getHeight() - getPaddingTop()
                     - getPaddingBottom();
@@ -321,13 +324,13 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         mPendingScrollPosition = RecyclerView.NO_POSITION;
     }
 
-    void ensureLayoutState() {
+    private void ensureLayoutState() {
         if (mOrientationHelper == null) {
             mOrientationHelper = OrientationHelper.createOrientationHelper(this, mOrientation);
         }
     }
 
-    protected void setUp() {
+    private void setUp() {
 
     }
 
@@ -349,32 +352,32 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
     }
 
     @Override
-    public int computeHorizontalScrollOffset(RecyclerView.State state) {
+    public int computeHorizontalScrollOffset(@NonNull RecyclerView.State state) {
         return computeScrollOffset();
     }
 
     @Override
-    public int computeVerticalScrollOffset(RecyclerView.State state) {
+    public int computeVerticalScrollOffset(@NonNull RecyclerView.State state) {
         return computeScrollOffset();
     }
 
     @Override
-    public int computeHorizontalScrollExtent(RecyclerView.State state) {
+    public int computeHorizontalScrollExtent(@NonNull RecyclerView.State state) {
         return computeScrollExtent();
     }
 
     @Override
-    public int computeVerticalScrollExtent(RecyclerView.State state) {
+    public int computeVerticalScrollExtent(@NonNull RecyclerView.State state) {
         return computeScrollExtent();
     }
 
     @Override
-    public int computeHorizontalScrollRange(RecyclerView.State state) {
+    public int computeHorizontalScrollRange(@NonNull RecyclerView.State state) {
         return computeScrollRange();
     }
 
     @Override
-    public int computeVerticalScrollRange(RecyclerView.State state) {
+    public int computeVerticalScrollRange(@NonNull RecyclerView.State state) {
         return computeScrollRange();
     }
 
@@ -566,33 +569,33 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         setItemViewProperty(scrap, targetOffset);
     }
 
-    protected int calItemLeft(View itemView, float targetOffset) {
+    private int calItemLeft(View itemView, float targetOffset) {
         return mOrientation == VERTICAL ? 0 : (int) targetOffset;
     }
 
-    protected int calItemTop(View itemView, float targetOffset) {
+    private int calItemTop(View itemView, float targetOffset) {
         return mOrientation == VERTICAL ? (int) targetOffset : 0;
     }
 
-    protected float maxRemoveOffset() {
+    private float maxRemoveOffset() {
         return mOrientationHelper.getTotalSpace() - mSpaceMain;
     }
 
-    protected float minRemoveOffset() {
+    private float minRemoveOffset() {
         return -mDecoratedMeasurement - mOrientationHelper.getStartAfterPadding() - mSpaceMain;
     }
 
-    protected float propertyChangeWhenScroll(View itemView) {
+    private float propertyChangeWhenScroll(View itemView) {
         if (mOrientation == VERTICAL)
             return itemView.getTop() - mSpaceMain;
         return itemView.getLeft() - mSpaceMain;
     }
 
-    protected float getDistanceRatio() {
+    private float getDistanceRatio() {
         return 1;
     }
 
-    public int getCurrentPosition() {
+    int getCurrentPosition() {
         int position = getCurrentPositionOffset();
         if (!mInfinite) return Math.abs(position);
         position = !mReverseLayout ?
@@ -625,7 +628,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
                     mOffset;
     }
 
-    public int getOffsetToCenter() {
+    int getOffsetToCenter() {
         if (mInfinite)
             return (int) ((getCurrentPositionOffset() * mInterval - mOffset) * getDistanceRatio());
         return (int) ((getCurrentPosition() *
@@ -653,7 +656,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
         mSmoothScrollbarEnabled = enabled;
     }
 
-    public void setEnableBringCenterToFront(boolean bringCenterToTop) {
+    private void setEnableBringCenterToFront(boolean bringCenterToTop) {
         assertNotInLayoutOrScroll(null);
         if (mEnableBringCenterToFront == bringCenterToTop) {
             return;
@@ -685,7 +688,7 @@ public class OverFlyingLayoutManager extends RecyclerView.LayoutManager
             isReverseLayout = in.readInt() == 1;
         }
 
-        public SavedState(SavedState other) {
+        SavedState(SavedState other) {
             position = other.position;
             offset = other.offset;
             isReverseLayout = other.isReverseLayout;

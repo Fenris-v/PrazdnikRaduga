@@ -1,15 +1,17 @@
-package com.petersburg_studio.prazdnikraduga.slider.lib.layoutmanager;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
 public class CenterScrollListener extends RecyclerView.OnScrollListener {
     private boolean mAutoSet = false;
 
     @Override
-    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
         super.onScrollStateChanged(recyclerView, newState);
         final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
 
+        assert layoutManager != null;
         final OverFlyingLayoutManager.OnPageChangeListener onPageChangeListener = ((OverFlyingLayoutManager) layoutManager).onPageChangeListener;
         if (onPageChangeListener != null) {
             onPageChangeListener.onPageScrollStateChanged(newState);

@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.test.homescreen;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.petersburg_studio.prazdnikraduga.R;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter.ProductAdapter;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter.ProductViewModel;
 import com.petersburg_studio.prazdnikraduga.tools.CheckInternetConnection;
 
 public class TestActivity extends AppCompatActivity {

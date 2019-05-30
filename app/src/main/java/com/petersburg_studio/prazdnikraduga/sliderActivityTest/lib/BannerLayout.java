@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.slider.lib;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -22,8 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.slider.lib.layoutmanager.BannerLayoutManager;
-import com.petersburg_studio.prazdnikraduga.slider.lib.layoutmanager.CenterSnapHelper;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager.BannerLayoutManager;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager.CenterSnapHelper;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
@@ -205,14 +206,14 @@ public class BannerLayout extends FrameLayout {
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 if (dx != 0) {
                     setPlaying(false);
                 }
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 int first = mLayoutManager.getCurrentPosition();
                 Log.d("xxx", "onScrollStateChanged");
                 if (currentIndex != first) {
@@ -271,8 +272,9 @@ public class BannerLayout extends FrameLayout {
             this.currentPosition = currentPosition;
         }
 
+        @NonNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             ImageView bannerPoint = new ImageView(getContext());
             RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -284,7 +286,7 @@ public class BannerLayout extends FrameLayout {
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             ImageView bannerPoint = (ImageView) holder.itemView;
             bannerPoint.setImageDrawable(currentPosition == position ? mSelectedDrawable : mUnselectedDrawable);
 

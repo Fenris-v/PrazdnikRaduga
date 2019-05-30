@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.test.homescreen;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.adapter;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
@@ -14,16 +14,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.slider.SliderActivity;
-import com.petersburg_studio.prazdnikraduga.test.pojo.Product;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo.Product;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.SliderActivity;
 
 import java.util.Objects;
 
-//TODO: teleport this to testActivity and change her
-
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
-    final Product product;
+    private final Product product;
 
     private static DiffUtil.ItemCallback<Product> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Product>() {
@@ -87,7 +85,6 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
                         intent.putExtra(SliderActivity.EXTRA_IMG1, Objects.requireNonNull(getItem(pos)).getImg_url1());
                         intent.putExtra(SliderActivity.EXTRA_IMG2, Objects.requireNonNull(getItem(pos)).getImg_url2());
                         intent.putExtra(SliderActivity.EXTRA_IMG3, Objects.requireNonNull(getItem(pos)).getImg_url3());
-//                        intent.putExtra(SliderActivity.EXTRA_POS, pos);
                         ctx.startActivity(intent);
                     }
                 }

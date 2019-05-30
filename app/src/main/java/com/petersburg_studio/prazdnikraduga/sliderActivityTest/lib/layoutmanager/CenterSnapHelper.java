@@ -1,5 +1,6 @@
-package com.petersburg_studio.prazdnikraduga.slider.lib.layoutmanager;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.DecelerateInterpolator;
@@ -7,8 +8,8 @@ import android.widget.Scroller;
 
 public class CenterSnapHelper extends RecyclerView.OnFlingListener {
 
-    RecyclerView mRecyclerView;
-    Scroller mGravityScroller;
+    private RecyclerView mRecyclerView;
+    private Scroller mGravityScroller;
 
     private boolean snapToCenter = false;
 
@@ -18,11 +19,12 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
                 boolean mScrolled = false;
 
                 @Override
-                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                     super.onScrollStateChanged(recyclerView, newState);
 
                     final BannerLayoutManager layoutManager =
                             (BannerLayoutManager) recyclerView.getLayoutManager();
+                    assert layoutManager != null;
                     final BannerLayoutManager.OnPageChangeListener onPageChangeListener =
                             layoutManager.onPageChangeListener;
                     if (onPageChangeListener != null) {
@@ -41,7 +43,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
                 }
 
                 @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                     if (dx != 0 || dy != 0) {
                         mScrolled = true;
                     }
@@ -112,8 +114,8 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
         }
     }
 
-    void snapToCenterView(BannerLayoutManager layoutManager,
-                          BannerLayoutManager.OnPageChangeListener listener) {
+    private void snapToCenterView(BannerLayoutManager layoutManager,
+                                  BannerLayoutManager.OnPageChangeListener listener) {
         final int delta = layoutManager.getOffsetToCenter();
         if (delta != 0) {
             if (layoutManager.getOrientation()
@@ -129,7 +131,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
             listener.onPageSelected(layoutManager.getCurrentPosition());
     }
 
-    void setupCallbacks() throws IllegalStateException {
+    private void setupCallbacks() throws IllegalStateException {
         if (mRecyclerView.getOnFlingListener() != null) {
             throw new IllegalStateException("An instance of OnFlingListener already set.");
         }
@@ -137,7 +139,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
         mRecyclerView.setOnFlingListener(this);
     }
 
-    void destroyCallbacks() {
+    private void destroyCallbacks() {
         mRecyclerView.removeOnScrollListener(mScrollListener);
         mRecyclerView.setOnFlingListener(null);
     }

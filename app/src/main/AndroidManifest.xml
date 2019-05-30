@@ -16,16 +16,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".slider.SliderActivity"
+        <activity android:name=".sliderActivityTest.SliderActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".test.homescreen.TestActivity"/>
+            android:parentActivityName=".itemsActivityTest.TestActivity"/>
         <activity
             android:screenOrientation="portrait"
-            android:name=".test.homescreen.TestActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".stub.StubActivity"
+            android:name=".itemsActivityTest.TestActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Other2ndActivity"

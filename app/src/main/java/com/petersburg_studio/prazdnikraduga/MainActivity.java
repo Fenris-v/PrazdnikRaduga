@@ -32,7 +32,7 @@ import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.PricesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.SeasonsHolidaysFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ShowsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ThematicPartiesFragment;
-import com.petersburg_studio.prazdnikraduga.test.homescreen.TestActivity;
+import com.petersburg_studio.prazdnikraduga.itemsActivityTest.TestActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

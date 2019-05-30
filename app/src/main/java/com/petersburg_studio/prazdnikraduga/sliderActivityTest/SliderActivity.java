@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.slider;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.slider.adapter.WebBannerAdapter;
-import com.petersburg_studio.prazdnikraduga.slider.lib.BannerLayout;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.adapter.WebBannerAdapter;
+import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.BannerLayout;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.petersburg_studio.prazdnikraduga.test.homescreen;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class RetrofitClient {
+public class RetrofitClient {
 
     private static final String BASE_URL = "http://cl78202.tmweb.ru/api/";
     private static RetrofitClient instance;
@@ -16,14 +16,14 @@ class RetrofitClient {
                 .build();
     }
 
-    static synchronized RetrofitClient getInstance() {
+    public static synchronized RetrofitClient getInstance() {
         if (instance == null) {
             instance = new RetrofitClient();
         }
         return instance;
     }
 
-    ApiService getApi() {
+    public ApiService getApi() {
         return retrofit.create(ApiService.class);
     }
 }

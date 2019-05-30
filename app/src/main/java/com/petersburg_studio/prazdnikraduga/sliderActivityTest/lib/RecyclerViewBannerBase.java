@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.slider.lib;
+package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -135,12 +135,12 @@ public abstract class RecyclerViewBannerBase<L extends RecyclerView.LayoutManage
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 onBannerScrolled(recyclerView, dx, dy);
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 onBannerScrollStateChanged(recyclerView, newState);
 
             }
@@ -305,8 +305,9 @@ public abstract class RecyclerViewBannerBase<L extends RecyclerView.LayoutManage
             this.currentPosition = currentPosition;
         }
 
+        @NonNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
             ImageView bannerPoint = new ImageView(getContext());
             RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -318,7 +319,7 @@ public abstract class RecyclerViewBannerBase<L extends RecyclerView.LayoutManage
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             ImageView bannerPoint = (ImageView) holder.itemView;
             bannerPoint.setImageDrawable(currentPosition == position ? mSelectedDrawable : mUnselectedDrawable);
 

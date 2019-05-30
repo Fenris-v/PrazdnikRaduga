@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.test.pojo;
+package com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
