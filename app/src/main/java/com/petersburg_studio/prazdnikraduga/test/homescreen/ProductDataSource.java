@@ -21,17 +21,16 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
     static final int PAGE_SIZE = 10;
     private static final int FIRST_PAGE = 1;
     private final MutableLiveData<RequestFailure> requestFailureLiveData;
-    private final ApiService service;
 
-    public ProductDataSource(ApiService service) {
+    public ProductDataSource() {
         this.requestFailureLiveData = new MutableLiveData<>();
-        this.service = service;
     }
 
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Product> callback) {
 
-        Call<ApiResponse> call = service.getProducts(API_KEY, FIRST_PAGE, PAGE_SIZE);
+        Call<ApiResponse> call = RetrofitClient.getInstance()
+                .getApi().getProducts(API_KEY, FIRST_PAGE, PAGE_SIZE);
 
 //        RetrofitClient.getInstance()
 //                .getApi()
@@ -97,7 +96,8 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
 //                .getProducts(API_KEY, params.key, PAGE_SIZE)
 //                .enqueue(new Callback<ApiResponse>() {
 
-        Call<ApiResponse> call = service.getProducts(API_KEY, params.key, PAGE_SIZE);
+        Call<ApiResponse> call = RetrofitClient.getInstance()
+                .getApi().getProducts(API_KEY, params.key, PAGE_SIZE);
 
         Callback<ApiResponse> requestCallback = new Callback<ApiResponse>() {
             @Override

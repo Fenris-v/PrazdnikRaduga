@@ -1,9 +1,11 @@
 package com.petersburg_studio.prazdnikraduga.test.homescreen;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -108,6 +110,27 @@ public class TestActivity extends AppCompatActivity {
                     showLoadingIndicator(false);
                 }
                 adapter.submitList(products);
+
+
+//                ProductDataSource productDataSource = new ProductDataSource();
+//                productDataSource.getRequestFailureLiveData().observe(this, new Observer<RequestFailure>() {
+//                    @Override
+//                    public void onChanged(@Nullable RequestFailure requestFailure) {
+//                        System.out.println(123);
+//                        if (requestFailure == null) {
+//                            return;
+//                        }
+//
+//                        Snackbar.make(parentView, requestFailure.getErrorMessage(), Snackbar.LENGTH_INDEFINITE)
+//                                .setAction("Retry", new View.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(View v) {
+//                                        requestFailure.getRetryable().retry();
+//                                    }
+//                                }).show();
+//                    }
+//                });
+
                 if (isRefresh) {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
