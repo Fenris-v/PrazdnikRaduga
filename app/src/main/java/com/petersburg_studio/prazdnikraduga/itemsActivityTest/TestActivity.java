@@ -27,9 +27,9 @@ public class TestActivity extends AppCompatActivity implements WaveSwipeRefreshL
     private boolean isRefresh = false;
     private Snackbar snackbar;
     private FloatingActionButton fab_up;
-    final ProductAdapter adapter = new ProductAdapter(this);
-    RecyclerView recyclerView;
-    GridLayoutManager layoutManager;
+    private final ProductAdapter adapter = new ProductAdapter(this);
+    private RecyclerView recyclerView;
+    private GridLayoutManager layoutManager;
     private WaveSwipeRefreshLayout waveSwipeRefreshLayout;
 
     @Override
