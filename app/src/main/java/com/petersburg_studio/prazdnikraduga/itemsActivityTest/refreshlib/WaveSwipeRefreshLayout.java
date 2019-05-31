@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2015 RECRUIT LIFESTYLE CO., LTD.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.petersburg_studio.prazdnikraduga.itemsActivityTest.refreshlib;
 
 import android.animation.ValueAnimator;
@@ -37,9 +21,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
 
-/**
- * @author amyu
- */
 public class WaveSwipeRefreshLayout extends ViewGroup
     implements ViewTreeObserver.OnPreDrawListener {
 
@@ -67,56 +48,28 @@ public class WaveSwipeRefreshLayout extends ViewGroup
 
   private static final float DRAGGING_WEIGHT = 0.5f;
 
-  /**
-   * 落ちる前の回転の最大のAngle値
-   */
   private static final float MAX_PROGRESS_ROTATION_RATE = 0.8f;
 
-  /**
-   * {@link WaveSwipeRefreshLayout#mCircleView} が消えるときのDuration
-   */
   private static final int SCALE_DOWN_DURATION = 200;
 
-  /**
-   * {@link WaveSwipeRefreshLayout.ProgressAnimationImageView#mProgress}
-   * の回転が始まるまでのDuration
-   */
   private static final int ANIMATE_TO_TRIGGER_DURATION = 200;
 
-  /**
-   * デフォルトのCircleのTargetの値
-   */
   private static final int DEFAULT_CIRCLE_TARGET = 64;
 
   private View mTarget;
 
-  /**
-   * Refreshを通知するListener
-   */
   private OnRefreshListener mListener;
 
-  /**
-   * リフレッシュ状態
-   */
   private STATE mState = STATE.PENDING;
 
   private EVENT_PHASE mEventPhase = EVENT_PHASE.WAITING;
 
-  /**
-   * {@link WaveSwipeRefreshLayout#mAnimateToCorrectPosition } にセットするInterpolator
-   */
   private final DecelerateInterpolator mDecelerateInterpolator;
 
   private ProgressAnimationImageView mCircleView;
 
-  /**
-   * 波のView
-   */
   private WaveView mWaveView;
 
-  /**
-   * {@link WaveSwipeRefreshLayout#mListener} に通知するかどうかのFlag
-   */
   private boolean mNotify;
 
   private boolean mIsManualRefresh = false;
@@ -129,26 +82,14 @@ public class WaveSwipeRefreshLayout extends ViewGroup
 
   private int mTopOffset;
 
-  /**
-   * Constructor
-   * {@inheritDoc}
-   */
   public WaveSwipeRefreshLayout(Context context) {
     this(context, null);
   }
 
-  /**
-   * Constructor
-   * {@inheritDoc}
-   */
   public WaveSwipeRefreshLayout(Context context, AttributeSet attrs) {
     this(context, attrs, 0);
   }
 
-  /**
-   * Constructor
-   * {@inheritDoc}
-   */
   public WaveSwipeRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
 
@@ -176,9 +117,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     ensureTarget();
 
-    //// Propagates measuring to child view and to circle view
-
-    // Measures on child view with each directed length without padding
     mTarget.measure(
         makeMeasureSpecExactly(getMeasuredWidth() - (getPaddingLeft() + getPaddingRight())),
         makeMeasureSpecExactly(getMeasuredHeight() - (getPaddingTop() + getPaddingBottom())));
@@ -276,7 +214,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
 
         final float yDiff = currentY - mFirstTouchDownPointY;
 
-        // State is changed to drag if over slop
         if (yDiff > ViewConfiguration.get(getContext()).getScaledTouchSlop() && !isRefreshing()) {
           mCircleView.makeProgressTransparent();
           return true;
@@ -294,12 +231,8 @@ public class WaveSwipeRefreshLayout extends ViewGroup
   }
 
   @Override public void requestDisallowInterceptTouchEvent(boolean b) {
-    //orz
   }
 
-  /**
-   * Make circle view be visible and even scale.
-   */
   private void reInitCircleView() {
     if (mCircleView.getVisibility() != View.VISIBLE) {
       mCircleView.setVisibility(View.VISIBLE);
@@ -329,7 +262,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     float dragPercent = Math.min(1f, originalDragPercent);
     float adjustedPercent = (float) Math.max(dragPercent - .4, 0) * 5 / 3;
 
-    // 0f...2f
     float tensionSlingshotPercent =
         (originalDragPercent > 3f) ? 2f : (originalDragPercent > 1f) ? originalDragPercent - 1f : 0;
     float tensionPercent = (4f - tensionSlingshotPercent) * tensionSlingshotPercent / 8f;
@@ -353,16 +285,12 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     float finalBounds = (firstBounds - VERTICAL_DRAG_THRESHOLD.SECOND.val) / 5;
 
     if (firstBounds < VERTICAL_DRAG_THRESHOLD.FIRST.val) {
-      // draw a wave and not draw a circle
       onBeginPhase(firstBounds);
     } else if (firstBounds < VERTICAL_DRAG_THRESHOLD.SECOND.val) {
-      // draw a circle with a wave
       onAppearPhase(firstBounds, secondBounds);
     } else if (firstBounds < VERTICAL_DRAG_THRESHOLD.THIRD.val) {
-      // draw a circle with expanding a wave
       onExpandPhase(firstBounds, secondBounds, finalBounds);
     } else {
-      // stop to draw a wave and drop a circle
       onDropPhase();
     }
 
@@ -370,14 +298,12 @@ public class WaveSwipeRefreshLayout extends ViewGroup
   }
 
   private void onBeginPhase(float move1) {
-    //最初の小波の描画
     mWaveView.beginPhase(move1);
 
     setEventPhase(EVENT_PHASE.BEGINNING);
   }
 
   private void onAppearPhase(float move1, float move2) {
-    //すでに描画されている波に対して追加で円を描画する
     mWaveView.appearPhase(move1, move2);
 
     setEventPhase(EVENT_PHASE.APPEARING);
@@ -418,7 +344,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     final int action = MotionEventCompat.getActionMasked(event);
     switch (action) {
       case MotionEvent.ACTION_DOWN:
-        // Here is not called from anywhere
         break;
 
       case MotionEvent.ACTION_MOVE:
@@ -474,9 +399,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     }
   };
 
-  /**
-   * @param dropHeight 高さ
-   */
   public void setMaxDropHeight(int dropHeight) {
     mWaveView.setMaxDropHeight(dropHeight);
   }
@@ -522,10 +444,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     }
   }
 
-  /**
-   * @param refreshing Refreshの状態
-   * @param notify Listenerに通知するかどうか
-   */
   private void setRefreshing(boolean refreshing, final boolean notify) {
     if (isRefreshing() != refreshing) {
       mNotify = notify;
@@ -555,9 +473,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     setState((doRefresh) ? STATE.REFRESHING : STATE.PENDING);
   }
 
-  /**
-   * @param listener {@link Animation.AnimationListener}
-   */
   private void startScaleDownAnimation(Animation.AnimationListener listener) {
     Animation scaleDownAnimation = new Animation() {
       @Override public void applyTransformation(float interpolatedTime, Transformation t) {
@@ -571,26 +486,15 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     mCircleView.startAnimation(scaleDownAnimation);
   }
 
-  /**
-   * @param colorResIds ColorのId達
-   */
   public void setColorSchemeResources(@IdRes int... colorResIds) {
     mCircleView.setProgressColorSchemeColorsFromResource(colorResIds);
   }
 
-  /**
-   * @param colors セットするColor達
-   */
   public void setColorSchemeColors(int... colors) {
-    // FIXME Add @NonNull to the argument
     ensureTarget();
     mCircleView.setProgressColorSchemeColors(colors);
   }
 
-  /**
-   * @return {@link WaveSwipeRefreshLayout#mState} == REFRESHING of {@link
-   * WaveSwipeRefreshLayout.STATE}
-   */
   public boolean isRefreshing() {
     return mState == STATE.REFRESHING;
   }
@@ -615,9 +519,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     return mEventPhase == EVENT_PHASE.WAITING;
   }
 
-  /**
-   * @param refreshing {@link WaveSwipeRefreshLayout#mState} のセット
-   */
   public void setRefreshing(boolean refreshing) {
     if (refreshing && !isRefreshing()) {
       // scale and show
@@ -638,9 +539,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     }
   }
 
-  /**
-   * @return ScrollUp出来るかどうか
-   */
   public boolean canChildScrollUp() {
     if (mTarget == null) {
       return false;
@@ -659,19 +557,11 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     }
   }
 
-  /**
-   * @param radius 波の影の深さ
-   */
   public void setShadowRadius(int radius) {
     radius = Math.max(0, radius); // set zero if negative
     mWaveView.setShadowRadius(radius);
   }
 
-  /**
-   * This is an alias to WaveView#setWaveColor(int)
-   *
-   * @see WaveView#setWaveColor(int)
-   */
   public void setWaveColor(int argbColor) {
     int alpha = (argbColor >> 0);
     int red = 0xFF & ( argbColor >> 16);
@@ -680,26 +570,10 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     setWaveARGBColor(alpha, red, green, blue);
   }
 
-  /**
-   * WaveView is colored by given rgb color + 0xFF000000
-   *
-   * @param r int [0, 0xFF]
-   * @param g int [0, 0xFF]
-   * @param b int [0, 0xFF]
-   */
   public void setWaveRGBColor(int r, int g, int b) {
     mWaveView.setWaveColor(Color.argb(0xFF, r, g, b));
   }
 
-  /**
-   * This is an alias to WaveView#setWaveARGBColor(int)
-   *
-   * @param a int [0, 0xFF]
-   * @param r int [0, 0xFF]
-   * @param g int [0, 0xFF]
-   * @param b int [0, 0xFF]
-   * @see WaveView#setWaveARGBColor(int, int, int, int)
-   */
   public void setWaveARGBColor(int a, int r, int g, int b) {
     setWaveRGBColor(r, g, b);
     if (a == 0xFF) {
@@ -712,9 +586,6 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     return MeasureSpec.makeMeasureSpec(length, MeasureSpec.EXACTLY);
   }
 
-  /**
-   * @param listener {@link WaveSwipeRefreshLayout.OnRefreshListener}
-   */
   public void setOnRefreshListener(OnRefreshListener listener) {
     mListener = listener;
   }
@@ -723,19 +594,9 @@ public class WaveSwipeRefreshLayout extends ViewGroup
     void onRefresh();
   }
 
-  /**
-   * Custom view has progress drawable.
-   * Some features of MaterialProgressDrawable are decorated.
-   *
-   * @author jmatsu
-   */
   private class ProgressAnimationImageView extends AnimationImageView {
     private final MaterialProgressDrawable mProgress;
 
-    /**
-     * Constructor
-     * {@inheritDoc}
-     */
     public ProgressAnimationImageView(Context context) {
       super(context);
       mProgress = new MaterialProgressDrawable(context, WaveSwipeRefreshLayout.this);

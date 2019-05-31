@@ -173,7 +173,6 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
 
         //make intent for listener of services block
-        //TODO: change
         final Intent intentAnimators = new Intent(this, AnimatorsActivity.class);
         final Intent intentOthers = new Intent(this, Other2ndActivity.class);
 

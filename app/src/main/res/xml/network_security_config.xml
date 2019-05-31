@@ -6,6 +6,8 @@
         <domain includeSubdomains="true">cl78202.tmweb.ru</domain>
     </domain-config>
 
-    <!--TODO: domain prazdnik-raduga.ru-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">prazdnik-raduga.ru</domain>
+    </domain-config>
 
 </network-security-config>
