@@ -14,7 +14,4 @@
     <color name="transparent_white">#00FFFFFF</color>
 
     //refreshes colors
-    <color name="refresh">#FF5900</color>
-    <color name="refresh1">#ffd800</color>
-    <color name="refresh2">#FF3300</color>
 </resources>

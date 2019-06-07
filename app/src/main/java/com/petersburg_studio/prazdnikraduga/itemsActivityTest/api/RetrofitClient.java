@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://cl78202.tmweb.ru/api/";
+    private static final String BASE_URL = "http://cl14610.tmweb.ru/api/";
     private static RetrofitClient instance;
     private Retrofit retrofit;
 

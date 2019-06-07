@@ -85,6 +85,17 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
                         intent.putExtra(SliderActivity.EXTRA_IMG1, Objects.requireNonNull(getItem(pos)).getImg_url1());
                         intent.putExtra(SliderActivity.EXTRA_IMG2, Objects.requireNonNull(getItem(pos)).getImg_url2());
                         intent.putExtra(SliderActivity.EXTRA_IMG3, Objects.requireNonNull(getItem(pos)).getImg_url3());
+                        intent.putExtra(SliderActivity.EXTRA_IMG4, Objects.requireNonNull(getItem(pos)).getImg_url4());
+                        intent.putExtra(SliderActivity.EXTRA_IMG5, Objects.requireNonNull(getItem(pos)).getImg_url5());
+                        intent.putExtra(SliderActivity.EXTRA_IMG6, Objects.requireNonNull(getItem(pos)).getImg_url6());
+                        intent.putExtra(SliderActivity.EXTRA_IMG7, Objects.requireNonNull(getItem(pos)).getImg_url7());
+                        intent.putExtra(SliderActivity.EXTRA_IMG8, Objects.requireNonNull(getItem(pos)).getImg_url8());
+                        intent.putExtra(SliderActivity.EXTRA_IMG9, Objects.requireNonNull(getItem(pos)).getImg_url9());
+                        intent.putExtra(SliderActivity.EXTRA_IMG10, Objects.requireNonNull(getItem(pos)).getImg_url10());
+                        intent.putExtra(SliderActivity.EXTRA_IMG11, Objects.requireNonNull(getItem(pos)).getImg_url11());
+                        intent.putExtra(SliderActivity.EXTRA_IMG12, Objects.requireNonNull(getItem(pos)).getImg_url12());
+                        intent.putExtra(SliderActivity.EXTRA_IMG13, Objects.requireNonNull(getItem(pos)).getImg_url13());
+                        intent.putExtra(SliderActivity.EXTRA_IMG14, Objects.requireNonNull(getItem(pos)).getImg_url14());
                         ctx.startActivity(intent);
                     }
                 }

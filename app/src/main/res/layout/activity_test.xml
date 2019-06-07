@@ -33,7 +33,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <View
-        android:id="@+id/toolbar_elevation"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="@drawable/toolbar_dropshadow"

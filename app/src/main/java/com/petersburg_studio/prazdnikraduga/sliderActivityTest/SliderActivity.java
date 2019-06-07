@@ -22,6 +22,17 @@ public class SliderActivity extends AppCompatActivity {
     public static final String EXTRA_IMG1 = "extraImg1";
     public static final String EXTRA_IMG2 = "extraImg2";
     public static final String EXTRA_IMG3 = "extraImg3";
+    public static final String EXTRA_IMG4 = "extraImg4";
+    public static final String EXTRA_IMG5 = "extraImg5";
+    public static final String EXTRA_IMG6 = "extraImg6";
+    public static final String EXTRA_IMG7 = "extraImg7";
+    public static final String EXTRA_IMG8 = "extraImg8";
+    public static final String EXTRA_IMG9 = "extraImg9";
+    public static final String EXTRA_IMG10 = "extraImg10";
+    public static final String EXTRA_IMG11 = "extraImg11";
+    public static final String EXTRA_IMG12 = "extraImg12";
+    public static final String EXTRA_IMG13 = "extraImg13";
+    public static final String EXTRA_IMG14 = "extraImg14";
 //    public static final String EXTRA_POS = "extraPos";
 
     @Override
@@ -42,6 +53,39 @@ public class SliderActivity extends AppCompatActivity {
         }
         if (getIntent().getExtras().get(EXTRA_IMG3) != null) {
             list.add((String) getIntent().getExtras().get(EXTRA_IMG3));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG4) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG4));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG5) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG5));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG6) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG6));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG7) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG7));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG8) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG8));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG9) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG9));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG10) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG10));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG11) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG11));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG12) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG12));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG13) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG13));
+        }
+        if (getIntent().getExtras().get(EXTRA_IMG14) != null) {
+            list.add((String) getIntent().getExtras().get(EXTRA_IMG14));
         }
 //        int pos = (int) getIntent().getExtras().get(EXTRA_POS);
 

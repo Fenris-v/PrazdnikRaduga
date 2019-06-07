@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @GET("db_connect.php")
+    @GET("db_connect_animators_all.php")
     Call<ApiResponse> getProducts(
             @Query("api_key") String apiKey,
             @Query("page") int page,
