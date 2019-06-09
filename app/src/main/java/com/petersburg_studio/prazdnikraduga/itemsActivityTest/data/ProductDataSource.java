@@ -11,7 +11,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo.APIKey.API_KEY;
+import static com.petersburg_studio.prazdnikraduga.Constans.API_KEY;
 
 public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
 
