@@ -32,7 +32,6 @@ import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.PricesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.SeasonsHolidaysFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ShowsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ThematicPartiesFragment;
-import com.petersburg_studio.prazdnikraduga.itemsActivityTest.TestActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -262,9 +261,6 @@ public class MainActivity extends AppCompatActivity
                 intent = new Intent(this, Other2ndActivity.class);
                 iFragment = new SeasonsHolidaysFragment();
                 break;
-            //TODO: delete test
-            case R.id.nav_test:
-                intent = new Intent(this, TestActivity.class);
         }
 
         if (intent != null) {

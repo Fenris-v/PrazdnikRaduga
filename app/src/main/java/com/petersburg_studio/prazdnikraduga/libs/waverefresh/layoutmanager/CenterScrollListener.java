@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager;
+package com.petersburg_studio.prazdnikraduga.libs.waverefresh.layoutmanager;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.BannerLayout
+    <com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="370dp"

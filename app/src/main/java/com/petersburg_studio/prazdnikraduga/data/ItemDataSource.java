@@ -1,11 +1,11 @@
-package com.petersburg_studio.prazdnikraduga.itemsActivityTest.data;
+package com.petersburg_studio.prazdnikraduga.data;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
 
-import com.petersburg_studio.prazdnikraduga.itemsActivityTest.api.RetrofitClient;
-import com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo.ApiResponse;
-import com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo.Product;
+import com.petersburg_studio.prazdnikraduga.api.RetrofitClient;
+import com.petersburg_studio.prazdnikraduga.pojo.ApiResponse;
+import com.petersburg_studio.prazdnikraduga.pojo.Items;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,24 +13,24 @@ import retrofit2.Response;
 
 import static com.petersburg_studio.prazdnikraduga.Constans.API_KEY;
 
-public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
+public class ItemDataSource extends PageKeyedDataSource<Integer, Items> {
 
     public static final int PAGE_SIZE = 10;
     private static final int FIRST_PAGE = 1;
 
 
     @Override
-    public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Product> callback) {
+    public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Items> callback) {
         RetrofitClient.getInstance()
                 .getApi()
-                .getProducts(API_KEY, FIRST_PAGE, PAGE_SIZE)
+                .getItems(API_KEY, FIRST_PAGE, PAGE_SIZE)
                 .enqueue(new Callback<ApiResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
 
                         if (response.body() != null) {
                             callback.onResult(
-                                    response.body().getProducts(),
+                                    response.body().getItems(),
                                     null,
                                     FIRST_PAGE + 1);
                         }
@@ -43,16 +43,16 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
     }
 
     @Override
-    public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Product> callback) {
+    public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Items> callback) {
         RetrofitClient.getInstance()
                 .getApi()
-                .getProducts(API_KEY, params.key, PAGE_SIZE)
+                .getItems(API_KEY, params.key, PAGE_SIZE)
                 .enqueue(new Callback<ApiResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
                         if (response.body() != null) {
                             Integer key = (params.key > 1) ? params.key - 1 : null;
-                            callback.onResult(response.body().getProducts(), key);
+                            callback.onResult(response.body().getItems(), key);
                         }
                     }
 
@@ -64,10 +64,10 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
     }
 
     @Override
-    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Product> callback) {
+    public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Items> callback) {
         RetrofitClient.getInstance()
                 .getApi()
-                .getProducts(API_KEY, params.key, PAGE_SIZE)
+                .getItems(API_KEY, params.key, PAGE_SIZE)
                 .enqueue(new Callback<ApiResponse>() {
                     @Override
                     public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
@@ -82,7 +82,7 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
 //                            ^ IT'S LONG CODE OF NEXT STRING:
 
                             Integer key = response.body().isHas_more() ? params.key + 1 : null;
-                            callback.onResult(response.body().getProducts(), key);
+                            callback.onResult(response.body().getItems(), key);
                         }
                     }
 

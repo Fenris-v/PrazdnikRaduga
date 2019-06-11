@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.itemsActivityTest.api;
+package com.petersburg_studio.prazdnikraduga.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

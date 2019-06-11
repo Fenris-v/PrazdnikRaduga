@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group>
         <item
@@ -48,12 +47,6 @@
             android:icon="@drawable/contacts_icon"
             android:title="@string/contacts"/>
 
-        <!--TODO: DELETE TEST-->
-        <item
-            android:id="@+id/nav_test"
-            android:icon="@drawable/test"
-            android:title="TEST"
-            tools:ignore="HardcodedText" />
     </group>
 
 </menu>

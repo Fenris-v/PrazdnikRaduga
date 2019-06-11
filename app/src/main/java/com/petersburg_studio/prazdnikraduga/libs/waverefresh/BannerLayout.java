@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib;
+package com.petersburg_studio.prazdnikraduga.libs.waverefresh;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,8 +23,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager.BannerLayoutManager;
-import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.layoutmanager.CenterSnapHelper;
+import com.petersburg_studio.prazdnikraduga.libs.waverefresh.layoutmanager.BannerLayoutManager;
+import com.petersburg_studio.prazdnikraduga.libs.waverefresh.layoutmanager.CenterSnapHelper;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 

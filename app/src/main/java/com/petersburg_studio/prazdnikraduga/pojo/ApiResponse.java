@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.itemsActivityTest.pojo;
+package com.petersburg_studio.prazdnikraduga.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +21,7 @@ public class ApiResponse {
 
     @SerializedName("results")
     @Expose
-    private List<Product> products = null;
+    private List<Items> items = null;
 
     public Integer getTotal_records() {
         return total_records;
@@ -47,11 +47,11 @@ public class ApiResponse {
         this.has_more = has_more;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Items> getItems() {
+        return items;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setItems(List<Items> items) {
+        this.items = items;
     }
 }

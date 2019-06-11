@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib.BannerLayout;
+import com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout;
 
 import java.util.List;
 

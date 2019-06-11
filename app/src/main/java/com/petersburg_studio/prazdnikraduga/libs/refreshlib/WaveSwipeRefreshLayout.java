@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.itemsActivityTest.refreshlib;
+package com.petersburg_studio.prazdnikraduga.libs.refreshlib;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

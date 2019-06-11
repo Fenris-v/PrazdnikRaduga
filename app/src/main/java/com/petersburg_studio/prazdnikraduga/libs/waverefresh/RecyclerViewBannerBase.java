@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.sliderActivityTest.lib;
+package com.petersburg_studio.prazdnikraduga.libs.waverefresh;
 
 import android.content.Context;
 import android.content.res.Resources;
