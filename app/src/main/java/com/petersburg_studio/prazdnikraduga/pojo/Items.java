@@ -17,6 +17,18 @@ public class Items {
     @Expose
     private String name;
 
+    @SerializedName("item_url")
+    @Expose
+    private String item_url;
+
+    @SerializedName("content0")
+    @Expose
+    private String content0;
+
+    @SerializedName("content1")
+    @Expose
+    private String content1;
+
     @SerializedName("img_url0")
     @Expose
     private String img_url0;
@@ -651,5 +663,29 @@ public class Items {
 
     public void setImg_url43(String img_url43) {
         this.img_url43 = img_url43;
+    }
+
+    public String getItem_url() {
+        return item_url;
+    }
+
+    public void setItem_url(String item_url) {
+        this.item_url = item_url;
+    }
+
+    public String getContent0() {
+        return content0;
+    }
+
+    public void setContent0(String content0) {
+        this.content0 = content0;
+    }
+
+    public String getContent1() {
+        return content1;
+    }
+
+    public void setContent1(String content1) {
+        this.content1 = content1;
     }
 }

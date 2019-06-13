@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.sliderActivityTest.adapter;
+package com.petersburg_studio.prazdnikraduga.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -14,30 +14,25 @@ import com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout;
 
 import java.util.List;
 
-public class WebBannerAdapter extends RecyclerView.Adapter<WebBannerAdapter.MyViewHolder> {
+public class AnimatorDetailAdapter extends RecyclerView.Adapter<AnimatorDetailAdapter.MyViewHolder> {
 
     private Context context;
     private List<String> urlList;
-    private BannerLayout.OnBannerItemClickListener onBannerItemClickListener;
 
-    public WebBannerAdapter(Context context, List<String> urlList) {
+    public AnimatorDetailAdapter(Context context, List<String> urlList) {
         this.context = context;
         this.urlList = urlList;
     }
 
-    public void setOnBannerItemClickListener(BannerLayout.OnBannerItemClickListener onBannerItemClickListener) {
-        this.onBannerItemClickListener = onBannerItemClickListener;
-    }
-
     @NonNull
     @Override
-    public WebBannerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
+    public AnimatorDetailAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.animator_image_slider, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WebBannerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AnimatorDetailAdapter.MyViewHolder holder, int position) {
         if (urlList == null || urlList.isEmpty()) {
             return;
         }
@@ -47,15 +42,8 @@ public class WebBannerAdapter extends RecyclerView.Adapter<WebBannerAdapter.MyVi
         Glide.with(context)
                 .load(url)
                 .placeholder(R.drawable.cat_wait)
+                .override(380, 560)
                 .into(img);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onBannerItemClickListener != null) {
-                    onBannerItemClickListener.onItemClick(pos);
-                }
-            }
-        });
     }
 
     @Override

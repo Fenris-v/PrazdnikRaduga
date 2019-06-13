@@ -73,7 +73,7 @@ public class GameAnimatorsFragment extends Fragment {
         adapter.setListener(position -> {
             position += listOfNumber.get(position) - 1;
             Intent intent = new Intent(getActivity(), AnimatorDetailActivity.class);
-            intent.putExtra(AnimatorDetailActivity.EXTRA_ANIMATOR_ID, position);
+//            intent.putExtra(AnimatorDetailActivity.EXTRA_ANIMATOR_ID, position);
             Objects.requireNonNull(getActivity()).startActivity(intent);
         });
         return animatorsRecycler;
