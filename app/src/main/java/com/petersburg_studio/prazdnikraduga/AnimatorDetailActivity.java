@@ -86,33 +86,17 @@ public class AnimatorDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_all);
 
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        ActionBar actionBar = getSupportActionBar();
-//        int animatorId = (Integer) getIntent().getExtras().get(EXTRA_ANIMATOR_ID);
-//        int animatorNameId = Animators.animators[animatorId].getName();
-//        String animatorName = getString(animatorNameId);
-//        assert actionBar != null;
-//        actionBar.setTitle(animatorName);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//
-//        int animatorImg = Animators.animators[animatorId].getImageResourceId();
-//        ImageView imageView = findViewById(R.id.image);
-//        imageView.setImageDrawable(ContextCompat.getDrawable(this, animatorImg));
-//        imageView.setContentDescription(animatorName);
-//
-//        int animatorContent = Animators.animators[animatorId].getContent();
-//        TextView textAnimator = findViewById(R.id.content);
-//        textAnimator.setText(animatorContent);
-
         BannerLayout banner = findViewById(R.id.recycler);
 
         name = (String) Objects.requireNonNull(getIntent().getExtras()).get(EXTRA_NAME);
+        assert name != null;
         name = name.replaceAll("Аниматор ", "");
         String content = (String) Objects.requireNonNull(getIntent().getExtras()).get(EXTRA_CONTENT);
-        String text = content.replaceAll("<h2> \\<p>", " ");
-        String text1 = content.replaceAll("", "");
+        String[] text = content.split("<h2>(.*)");
+        for (int i = 0; i < text.length; i++) {
+            text[i] = text[i].replaceAll("[<>p/]", " ");
+        }
+
         url = (String) Objects.requireNonNull(getIntent().getExtras()).get(EXTRA_URL);
 
         List<String> list = new ArrayList<>();
@@ -136,7 +120,9 @@ public class AnimatorDetailActivity extends AppCompatActivity {
 
         banner.setAdapter(animatorDetailAdapter);
         TextView textView = findViewById(R.id.content);
-        textView.setText(text);
+        TextView textView1 = findViewById(R.id.content1);
+        textView.setText(text[0]);
+        textView1.setText(text[1]);
     }
 
     @Override
