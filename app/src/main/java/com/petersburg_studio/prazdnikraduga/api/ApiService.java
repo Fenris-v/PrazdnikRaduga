@@ -12,6 +12,7 @@ public interface ApiService {
     Call<ApiResponse> getItems(
             @Query("api_key") String apiKey,
             @Query("page") int page,
-            @Query("per_page") int perPage
+            @Query("per_page") int perPage,
+            @Query("item_type") int type
     );
 }

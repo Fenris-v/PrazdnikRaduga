@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.adapters;
+package com.petersburg_studio.prazdnikraduga.adapters.animators;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout;
 
 import java.util.List;
 
@@ -41,7 +40,8 @@ public class AnimatorDetailAdapter extends RecyclerView.Adapter<AnimatorDetailAd
         ImageView img = holder.imageView;
         Glide.with(context)
                 .load(url)
-                .placeholder(R.drawable.cat_wait)
+                .fitCenter()
+                .placeholder(R.drawable.cat_wait_rectangle)
                 .override(380, 560)
                 .into(img);
     }

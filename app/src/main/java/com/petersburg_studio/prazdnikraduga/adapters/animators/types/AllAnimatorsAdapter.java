@@ -1,4 +1,4 @@
-package com.petersburg_studio.prazdnikraduga.adapters;
+package com.petersburg_studio.prazdnikraduga.adapters.animators.types;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;

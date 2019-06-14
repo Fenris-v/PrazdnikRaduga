@@ -32,7 +32,7 @@
 
             <com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout
                 android:id="@+id/recycler"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="360dp"
                 android:layout_gravity="center"
                 app:autoPlaying="true"
@@ -44,9 +44,9 @@
                 android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginTop="@dimen/text_margin"
                 android:layout_marginBottom="0dp"/>
 
             <TextView
@@ -63,9 +63,9 @@
                 android:id="@+id/content1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginBottom="@dimen/text_margin"
                 android:layout_marginTop="0dp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

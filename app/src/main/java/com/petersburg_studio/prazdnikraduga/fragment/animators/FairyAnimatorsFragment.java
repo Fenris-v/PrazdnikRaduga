@@ -1,80 +1,144 @@
 package com.petersburg_studio.prazdnikraduga.fragment.animators;
 
-
-import android.content.Intent;
+import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
-import com.petersburg_studio.prazdnikraduga.adapters.FilterAnimatorsImagesAdapter;
-import com.petersburg_studio.prazdnikraduga.AnimatorDetailActivity;
-import com.petersburg_studio.prazdnikraduga.arrays.Animators;
 import com.petersburg_studio.prazdnikraduga.R;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorsAdapter;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.types.FairyAnimatorViewModel;
+import com.petersburg_studio.prazdnikraduga.libs.refreshlib.WaveSwipeRefreshLayout;
+import com.petersburg_studio.prazdnikraduga.tools.CheckInternetConnection;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class FairyAnimatorsFragment extends Fragment {
-    final int ANIMATORS_TYPE = 2;
+public class FairyAnimatorsFragment extends Fragment implements WaveSwipeRefreshLayout.OnRefreshListener {
+
+    private RecyclerView recyclerView;
+    private AllAnimatorsAdapter adapter = new AllAnimatorsAdapter();
+    private View view;
+    private ProgressBar progressBar;
+    private boolean isRefresh = false;
+    private WaveSwipeRefreshLayout waveSwipeRefreshLayout;
+    private Snackbar snackbar;
+    private FloatingActionButton fab_up;
+    private GridLayoutManager layoutManager;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RecyclerView animatorsRecycler = (RecyclerView) inflater
-                .inflate(R.layout.fragment_all_recycler, container, false);
-        int[] type = new int[Animators.animators.length];
-        int[] name = new int[Animators.animators.length];
-        int[] imageResourceId = new int[Animators.animators.length];
-        int[] number = new int[Animators.animators.length];
-        int y = 0;
-        for (int i = 0; i < type.length; i++) {
-            int typeNum = Animators.animators[i].getType();
-            if (typeNum == ANIMATORS_TYPE && Animators.animators[i].getName() != 0) {
-                type[y] = Animators.animators[i].getType();
-                name[y] = Animators.animators[i].getName();
-                number[y] = Animators.animators[i].getNumber();
-                imageResourceId[y] = Animators.animators[i].getImageResourceId();
-                y++;
+
+        view = inflater
+                .inflate(R.layout.fragment_all_animators_recycler, container, false);
+
+        progressBar = view.findViewById(R.id.progress_bar);
+
+        showLoadingIndicator(true);
+        loadItems();
+
+        fab_up = view.findViewById(R.id.fab_up);
+        fab_up.hide();
+
+        if (recyclerView != null) {
+            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                @Override
+                public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                    super.onScrolled(recyclerView, dx, dy);
+                    if (dy >= 0 || layoutManager.findFirstVisibleItemPosition() == 0) {
+                        fab_up.hide();
+                        fab_up.animate().translationY(-138);
+                    } else {
+                        fab_up.show();
+                    }
+
+                }
+            });
+        }
+
+        fab_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerView.smoothScrollToPosition(0);
             }
-        }
-
-        //convert array with name to arrayList and delete null elements
-        List<String> listOfNames = new ArrayList<>();
-        for (int aName : name) {
-            if (aName != 0) listOfNames.add(getString(aName));
-        }
-
-        //convert array with image to arrayList and delete elements with 0
-        List<Integer> listOfImg = new ArrayList<>();
-        for (int anImageResourceId : imageResourceId) {
-            if (anImageResourceId != 0) {
-                listOfImg.add(anImageResourceId);
-            }
-        }
-
-        final List<Integer> listOfNumber = new ArrayList<>();
-        for (int aNumber : number) {
-            if (aNumber != 0) listOfNumber.add(aNumber);
-        }
-
-        FilterAnimatorsImagesAdapter adapter = new FilterAnimatorsImagesAdapter(listOfNames, listOfImg);
-        animatorsRecycler.setAdapter(adapter);
-
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
-        animatorsRecycler.setLayoutManager(layoutManager);
-
-        adapter.setListener(position -> {
-            position += listOfNumber.get(position) - 1;
-            Intent intent = new Intent(getActivity(), AnimatorDetailActivity.class);
-//            intent.putExtra(AnimatorDetailActivity.EXTRA_ANIMATOR_ID, position);
-            Objects.requireNonNull(getActivity()).startActivity(intent);
         });
-        return animatorsRecycler;
+
+        waveSwipeRefreshLayout = view.findViewById(R.id.main_swipe);
+        waveSwipeRefreshLayout.setColorSchemeColors(Color.WHITE, Color.WHITE);
+        waveSwipeRefreshLayout.setWaveColor(Color.argb(100, 120, 48, 141));
+        waveSwipeRefreshLayout.setMaxDropHeight(500);
+        waveSwipeRefreshLayout.setOnRefreshListener(this);
+
+        return view;
+    }
+
+    private void loadItems() {
+        recyclerView = view.findViewById(R.id.recycler);
+        layoutManager = new GridLayoutManager(getContext(), 3);
+        recyclerView.setLayoutManager(layoutManager);
+        FairyAnimatorViewModel productViewModel =
+                ViewModelProviders.of(this).get(FairyAnimatorViewModel.class);
+
+        productViewModel.animatorPagedList.observe(this, items -> {
+            if (progressBar.getVisibility() == View.VISIBLE) {
+                showLoadingIndicator(false);
+            }
+            recyclerView.setVisibility(View.VISIBLE);
+            if (recyclerView.getVisibility() == View.VISIBLE) {
+                showLoadingIndicator(false);
+            }
+            adapter.submitList(items);
+
+            if (isRefresh) {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        waveSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 0);
+            }
+        });
+        recyclerView.setAdapter(adapter);
+    }
+
+    public void showLoadingIndicator(boolean active) {
+        if (active && !isRefresh) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.GONE);
+                }
+            }, 0);
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+        final View parentView = view.findViewById(R.id.parentLayout);
+        if (snackbar != null) snackbar.dismiss();
+        if (CheckInternetConnection.checkConnection(Objects.requireNonNull(getActivity()).getApplicationContext())) {
+            isRefresh = true;
+            loadItems();
+        } else {
+            snackbar = Snackbar
+                    .make(parentView, R.string.no_internet, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.close, v -> snackbar.dismiss());
+            snackbar.show();
+            waveSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 }

@@ -10,9 +10,10 @@ import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.petersburg_studio.prazdnikraduga.adapters.AnimatorDetailAdapter;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.AnimatorDetailAdapter;
 import com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout;
 
 import java.util.ArrayList;
@@ -92,9 +93,19 @@ public class AnimatorDetailActivity extends AppCompatActivity {
         assert name != null;
         name = name.replaceAll("Аниматор ", "");
         String content = (String) Objects.requireNonNull(getIntent().getExtras()).get(EXTRA_CONTENT);
+        assert content != null;
         String[] text = content.split("<h2>(.*)");
         for (int i = 0; i < text.length; i++) {
+            text[i] = text[i].replaceAll("&ldquo;", "\"");
+            text[i] = text[i].replaceAll("&rdquo;", "\"");
+            text[i] = text[i].replaceAll("&laquo;", "\"");
+            text[i] = text[i].replaceAll("&raquo;", "\"");
+            text[i] = text[i].replaceAll("&ndash;", "-");
+            text[i] = text[i].replaceAll("<span>", "");
+            text[i] = text[i].replaceAll("</span>", "");
+            text[i] = text[i].replaceAll("&hellip;", "...");
             text[i] = text[i].replaceAll("[<>p/]", " ");
+            text[i] = text[i].replaceAll("!--", "");
         }
 
         url = (String) Objects.requireNonNull(getIntent().getExtras()).get(EXTRA_URL);
@@ -120,9 +131,16 @@ public class AnimatorDetailActivity extends AppCompatActivity {
 
         banner.setAdapter(animatorDetailAdapter);
         TextView textView = findViewById(R.id.content);
+        TextView textTitle = findViewById(R.id.content_title);
         TextView textView1 = findViewById(R.id.content1);
-        textView.setText(text[0]);
-        textView1.setText(text[1]);
+        if (!text[0].equals("")) {
+            textView.setText(text[0]);
+            textView1.setText(text[1]);
+        } else {
+            textView.setVisibility(View.GONE);
+            textView1.setVisibility(View.GONE);
+            textTitle.setText(name);
+        }
     }
 
     @Override

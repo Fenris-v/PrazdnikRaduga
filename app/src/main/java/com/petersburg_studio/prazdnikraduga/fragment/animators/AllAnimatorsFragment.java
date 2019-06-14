@@ -14,10 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.adapters.AllAnimatorsAdapter;
-import com.petersburg_studio.prazdnikraduga.adapters.AnimatorViewModel;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorsAdapter;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorViewModel;
 import com.petersburg_studio.prazdnikraduga.libs.refreshlib.WaveSwipeRefreshLayout;
 import com.petersburg_studio.prazdnikraduga.tools.CheckInternetConnection;
 
@@ -83,33 +84,41 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
     }
 
     private void loadItems() {
-        recyclerView = view.findViewById(R.id.recycler);
-        layoutManager = new GridLayoutManager(getContext(), 3);
-        recyclerView.setLayoutManager(layoutManager);
-        AnimatorViewModel productViewModel =
-                ViewModelProviders.of(this).get(AnimatorViewModel.class);
+        if (CheckInternetConnection.checkConnection((getActivity()).getApplicationContext())) {
+            recyclerView = view.findViewById(R.id.recycler);
+            layoutManager = new GridLayoutManager(getContext(), 3);
+            recyclerView.setLayoutManager(layoutManager);
+            AllAnimatorViewModel productViewModel =
+                    ViewModelProviders.of(this).get(AllAnimatorViewModel.class);
 
-        productViewModel.animatorPagedList.observe(this, items -> {
-            if (progressBar.getVisibility() == View.VISIBLE) {
-                showLoadingIndicator(false);
-            }
-            recyclerView.setVisibility(View.VISIBLE);
-            if (recyclerView.getVisibility() == View.VISIBLE) {
-                showLoadingIndicator(false);
-            }
-            adapter.submitList(items);
+            productViewModel.animatorPagedList.observe(this, items -> {
+                if (progressBar.getVisibility() == View.VISIBLE) {
+                    showLoadingIndicator(false);
+                }
+                recyclerView.setVisibility(View.VISIBLE);
+                if (recyclerView.getVisibility() == View.VISIBLE) {
+                    showLoadingIndicator(false);
+                }
+                adapter.submitList(items);
 
+                if (isRefresh) {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            waveSwipeRefreshLayout.setRefreshing(false);
+                        }
+                    }, 0);
+                }
+            });
+            recyclerView.setAdapter(adapter);
+        } else {
+            Toast.makeText(getActivity(), R.string.no_internet, Toast.LENGTH_SHORT).show();
+            showLoadingIndicator(false);
             if (isRefresh) {
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        waveSwipeRefreshLayout.setRefreshing(false);
-                    }
-                }, 0);
+                waveSwipeRefreshLayout.setRefreshing(false);
             }
-        });
-        recyclerView.setAdapter(adapter);
+        }
     }
 
     public void showLoadingIndicator(boolean active) {
@@ -122,7 +131,7 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
                 public void run() {
                     progressBar.setVisibility(View.GONE);
                 }
-            }, 500);
+            }, 0);
         }
     }
 

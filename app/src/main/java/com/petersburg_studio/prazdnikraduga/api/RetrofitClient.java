@@ -3,9 +3,10 @@ package com.petersburg_studio.prazdnikraduga.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.petersburg_studio.prazdnikraduga.Constans.BASE_URL;
+
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://cl14610.tmweb.ru/api/";
     private static RetrofitClient instance;
     private Retrofit retrofit;
 
