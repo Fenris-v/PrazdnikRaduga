@@ -16,13 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".sliderActivityTest.SliderActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".itemsActivityTest.TestActivity"/>
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".itemsActivityTest.TestActivity"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".OtherDetailActivity"/>
         <activity
             android:name=".Other2ndActivity"
             android:screenOrientation="portrait" />
@@ -32,35 +26,16 @@
             android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" /> <!-- SEASON DETAIL ACTIVITY -->
-        <activity
-            android:name=".SeasonHolidayDetailActivity"
-            android:parentActivityName=".Other2ndActivity"
-            android:screenOrientation="portrait" /> <!-- THEMATIC DETAIL ACTIVITY -->
-        <activity
-            android:name=".ThematicPartyDetailActivity"
-            android:parentActivityName=".Other2ndActivity"
-            android:screenOrientation="portrait" /> <!-- ADDITIONAL DETAIL ACTIVITY -->
-        <activity
-            android:name=".AdditionalServicesDetailActivity"
-            android:parentActivityName=".Other2ndActivity"
-            android:screenOrientation="portrait" /> <!-- MASTERS DETAIL ACTIVITY -->
-        <activity
-            android:name=".MasterDetailActivity"
-            android:parentActivityName=".Other2ndActivity"
-            android:screenOrientation="portrait" /> <!-- SHOWS DETAIL ACTIVITY -->
-        <activity
-            android:name=".ShowDetailActivity"
-            android:parentActivityName=".Other2ndActivity"
-            android:screenOrientation="portrait" /> <!-- ANIMATORS DETAIL ACTIVITY -->
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name=".AnimatorDetailActivity"
             android:parentActivityName=".AnimatorsActivity"
-            android:screenOrientation="portrait" /> <!-- ANIMATORS ACTIVITY -->
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AnimatorsActivity"
+            android:label="@string/animators"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" /> <!-- MAIN ACTIVITY -->
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

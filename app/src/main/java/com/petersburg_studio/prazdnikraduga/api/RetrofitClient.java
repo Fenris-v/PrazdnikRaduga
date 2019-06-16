@@ -3,7 +3,7 @@ package com.petersburg_studio.prazdnikraduga.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.petersburg_studio.prazdnikraduga.Constans.BASE_URL;
+import static com.petersburg_studio.prazdnikraduga.Constants.BASE_URL;
 
 public class RetrofitClient {
 

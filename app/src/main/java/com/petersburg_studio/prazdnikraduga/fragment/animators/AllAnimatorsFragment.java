@@ -17,8 +17,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.petersburg_studio.prazdnikraduga.R;
-import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorsAdapter;
 import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorViewModel;
+import com.petersburg_studio.prazdnikraduga.adapters.animators.types.AllAnimatorsAdapter;
 import com.petersburg_studio.prazdnikraduga.libs.refreshlib.WaveSwipeRefreshLayout;
 import com.petersburg_studio.prazdnikraduga.tools.CheckInternetConnection;
 
@@ -67,12 +67,7 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
             });
         }
 
-        fab_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recyclerView.smoothScrollToPosition(0);
-            }
-        });
+        fab_up.setOnClickListener(v -> recyclerView.smoothScrollToPosition(0));
 
         waveSwipeRefreshLayout = view.findViewById(R.id.main_swipe);
         waveSwipeRefreshLayout.setColorSchemeColors(Color.WHITE, Color.WHITE);
@@ -84,7 +79,7 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
     }
 
     private void loadItems() {
-        if (CheckInternetConnection.checkConnection((getActivity()).getApplicationContext())) {
+        if (CheckInternetConnection.checkConnection((Objects.requireNonNull(getActivity())).getApplicationContext())) {
             recyclerView = view.findViewById(R.id.recycler);
             layoutManager = new GridLayoutManager(getContext(), 3);
             recyclerView.setLayoutManager(layoutManager);
@@ -103,12 +98,7 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
 
                 if (isRefresh) {
                     Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            waveSwipeRefreshLayout.setRefreshing(false);
-                        }
-                    }, 0);
+                    handler.postDelayed(() -> waveSwipeRefreshLayout.setRefreshing(false), 0);
                 }
             });
             recyclerView.setAdapter(adapter);
@@ -126,12 +116,7 @@ public class AllAnimatorsFragment extends Fragment implements WaveSwipeRefreshLa
             progressBar.setVisibility(View.VISIBLE);
         } else {
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    progressBar.setVisibility(View.GONE);
-                }
-            }, 0);
+            handler.postDelayed(() -> progressBar.setVisibility(View.GONE), 0);
         }
     }
 

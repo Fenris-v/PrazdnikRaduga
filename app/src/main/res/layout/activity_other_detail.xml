@@ -30,15 +30,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.petersburg_studio.prazdnikraduga.libs.waverefresh.BannerLayout
-                android:id="@+id/recycler"
+            <ImageView
+                android:id="@+id/image"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:layout_gravity="center"
-                app:autoPlaying="true"
-                app:indicatorGravity="center"
-                app:itemSpace="20"
-                app:moveSpeed="0.8" />
+                android:layout_height="300dp"
+                android:contentDescription="@string/category_image" />
 
             <TextView
                 android:id="@+id/content"

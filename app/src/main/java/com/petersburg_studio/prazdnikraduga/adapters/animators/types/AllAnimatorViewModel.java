@@ -9,7 +9,7 @@ import android.arch.paging.PagedList;
 import com.petersburg_studio.prazdnikraduga.data.animators.AllAnimatorDataSourceFactory;
 import com.petersburg_studio.prazdnikraduga.pojo.Items;
 
-import static com.petersburg_studio.prazdnikraduga.Constans.PAGE_SIZE;
+import static com.petersburg_studio.prazdnikraduga.Constants.PAGE_SIZE;
 
 public class AllAnimatorViewModel extends ViewModel {
 

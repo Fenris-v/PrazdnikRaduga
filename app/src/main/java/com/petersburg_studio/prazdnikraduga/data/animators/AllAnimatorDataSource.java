@@ -11,8 +11,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.petersburg_studio.prazdnikraduga.Constans.API_KEY;
-import static com.petersburg_studio.prazdnikraduga.Constans.PAGE_SIZE;
+import static com.petersburg_studio.prazdnikraduga.Constants.API_KEY;
+import static com.petersburg_studio.prazdnikraduga.Constants.PAGE_SIZE;
 
 public class AllAnimatorDataSource extends PageKeyedDataSource<Integer, Items> {
 

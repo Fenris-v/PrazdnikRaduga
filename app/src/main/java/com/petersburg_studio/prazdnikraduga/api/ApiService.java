@@ -15,4 +15,39 @@ public interface ApiService {
             @Query("per_page") int perPage,
             @Query("item_type") int type
     );
+
+    @GET("db_connect_additional.php")
+    Call<ApiResponse> getAdds(
+            @Query("api_key") String apiKey,
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
+
+    @GET("db_connect_master.php")
+    Call<ApiResponse> getMasters(
+            @Query("api_key") String apiKey,
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
+
+    @GET("db_connect_season.php")
+    Call<ApiResponse> getSeasons(
+            @Query("api_key") String apiKey,
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
+
+    @GET("db_connect_show.php")
+    Call<ApiResponse> getShows(
+            @Query("api_key") String apiKey,
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
+
+    @GET("db_connect_thematic.php")
+    Call<ApiResponse> getThematic(
+            @Query("api_key") String apiKey,
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
 }

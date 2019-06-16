@@ -24,7 +24,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
 import com.petersburg_studio.prazdnikraduga.adapters.CaptionedImagesAdapter;
-import com.petersburg_studio.prazdnikraduga.arrays.Category;
+import com.petersburg_studio.prazdnikraduga.data.Category;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.AdditionalServicesFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.ContactsFragment;
 import com.petersburg_studio.prazdnikraduga.fragment.secondLevel.MastersFragment;
@@ -103,40 +103,36 @@ public class MainActivity extends AppCompatActivity
         //animate for main fab on scroll
         NestedScrollView nestedScrollView = findViewById(R.id.nestedScrollView);
         if (nestedScrollView != null) {
-            nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(NestedScrollView nestedScrollView,
-                                           int x, int y, int oldX, int oldY) {
-                    //hide fab's if scroll down
-                    if (y > oldY && fab_status) {
-                        fab.hide();
-                        hideFABs();
-                    } else if (y > oldY) {
-                        fab.hide();
-                    }
+            nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (nestedScrollView1, x, y, oldX, oldY) -> {
+                //hide fab's if scroll down
+                if (y > oldY && fab_status) {
+                    fab.hide();
+                    hideFABs();
+                } else if (y > oldY) {
+                    fab.hide();
+                }
 
-                    //show main fab if scroll up
-                    if (y < oldY && fab_status) {
-                        fab.show();
-                        hideFABs();
-                    } else if (y < oldY) {
-                        fab.show();
-                    }
+                //show main fab if scroll up
+                if (y < oldY && fab_status) {
+                    fab.show();
+                    hideFABs();
+                } else if (y < oldY) {
+                    fab.show();
+                }
 
-                    //show main fab if page home
-                    if (y == 0) {
-                        fab.show();
-                    }
+                //show main fab if page home
+                if (y == 0) {
+                    fab.show();
+                }
 
-                    //hide fab's if page end
-                    if (y == nestedScrollView.getChildAt(0)
-                            .getMeasuredHeight() - nestedScrollView.getMeasuredHeight() && fab_status) {
-                        fab.hide();
-                        hideFABs();
-                    } else if (y == nestedScrollView.getChildAt(0)
-                            .getMeasuredHeight() - nestedScrollView.getMeasuredHeight()) {
-                        fab.hide();
-                    }
+                //hide fab's if page end
+                if (y == nestedScrollView1.getChildAt(0)
+                        .getMeasuredHeight() - nestedScrollView1.getMeasuredHeight() && fab_status) {
+                    fab.hide();
+                    hideFABs();
+                } else if (y == nestedScrollView1.getChildAt(0)
+                        .getMeasuredHeight() - nestedScrollView1.getMeasuredHeight()) {
+                    fab.hide();
                 }
             });
         }

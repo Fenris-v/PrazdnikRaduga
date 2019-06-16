@@ -1,6 +1,5 @@
 package com.petersburg_studio.prazdnikraduga.fragment.secondLevel;
 
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
