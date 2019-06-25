@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/contacts_icon_white"
+            app:srcCompat="@drawable/contacts_icon_white"
             android:onClick="onClickMainFab" />
 
         <include layout="@layout/fab_layout" />
