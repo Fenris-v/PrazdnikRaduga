@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
 
-    <!--TODO: delete tmweb-->
+    <!--TODO: delete xsph-->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">ci85258.tmweb.ru</domain>
+        <domain includeSubdomains="true">f0340795.xsph.ru</domain>
     </domain-config>
 
     <domain-config cleartextTrafficPermitted="true">
